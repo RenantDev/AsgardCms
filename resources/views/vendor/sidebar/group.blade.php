@@ -1,6 +1,8 @@
-@if($group->shouldShowHeading())
-    <li class="header">{{ $group->getName() }}</li>
-@endif
+{{--@if($group->shouldShowHeading())
+    <li>
+    	<a href="#">{{ $group->getName() }}</a>
+    </li>
+@endif--}}
 
 @foreach($items as $item)
     {!! $item !!}

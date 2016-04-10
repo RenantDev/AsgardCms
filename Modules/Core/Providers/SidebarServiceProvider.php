@@ -24,13 +24,6 @@ class SidebarServiceProvider extends ServiceProvider
         if ($this->onBackend() === true ) {
             $manager->register(AdminSidebar::class);
         }
-
-        $admin_theme = config('asgard.core.core.admin-theme');
-
-        $location = base_path("Themes/$admin_theme/views/sidebar");
-
-        $this->loadViewsFrom($location, "sidebar-theme");
-
     }
 
     private function onBackend()

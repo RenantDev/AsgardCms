@@ -36,8 +36,6 @@ class AdminMiddleware
         $this->request = $request;
         $this->redirect = $redirect;
         $this->application = $application;
-
-        \Breadcrumbs::addCrumb(trans('core::core.breadcrumb.home'),\URL::route('dashboard.index'));
     }
 
     /**

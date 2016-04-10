@@ -1,6 +1,6 @@
 <?php namespace Modules\Core\Composers;
 
-use Modules\Core\Sidebar\IlluminateSidebarRenderer;
+use Maatwebsite\Sidebar\Presentation\SidebarRenderer;
 use Modules\Core\Sidebar\AdminSidebar;
 
 class SidebarViewCreator
@@ -19,7 +19,7 @@ class SidebarViewCreator
      * @param AdminSidebar    $sidebar
      * @param SidebarRenderer $renderer
      */
-    public function __construct(AdminSidebar $sidebar, IlluminateSidebarRenderer $renderer)
+    public function __construct(AdminSidebar $sidebar, SidebarRenderer $renderer)
     {
         $this->sidebar = $sidebar;
         $this->renderer = $renderer;
@@ -28,6 +28,6 @@ class SidebarViewCreator
     public function create($view)
     {
         $view->prefix = config('asgard.core.core.admin-prefix');
-        $view->sidebar = $this->renderer->render($this->sidebar, config('asgard.core.core.admin-theme'));
+        $view->sidebar = $this->renderer->render($this->sidebar);
     }
 }
