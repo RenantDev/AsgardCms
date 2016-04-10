@@ -15,17 +15,8 @@
     "laravel/framework": "~5.1",
     "pingpong/modules": "dev-feature/5.1",
     "cartalyst/sentinel": "~2.0",
-    "asgardcms/core-module": "~1.0",
-    "asgardcms/dashboard-module": "~1.0",
-    "asgardcms/user-module": "~1.0",
-    "asgardcms/setting-module": "~1.0",
-    "asgardcms/media-module": "~1.0",
-    "asgardcms/page-module": "~1.0",
-    "asgardcms/menu-module": "~1.0",
-    "asgardcms/workshop-module": "~1.0",
-    "asgardcms/translation-module": "~1.0",
-    "asgardcms/flatly-theme": "~1.0",
-    "asgardcms/adminlte-theme": "~1.0"
+    "wikimedia/composer-merge-plugin": "^1.3",
+    "creitive/laravel5-breadcrumbs": "^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",
@@ -38,6 +29,18 @@
       "url": "https://github.com/nWidart/modules"
     }
   ],
+  "extra": {
+      "merge-plugin": {
+          "include": [
+              "Modules/*/composer.json",
+              "Themes/*/composer.json"
+          ],
+          "recurse": true,
+          "replace": false,
+          "merge-dev": true,
+          "merge-extra": false
+      }
+  },
   "autoload": {
     "classmap": [
       "database"
@@ -63,7 +66,6 @@
       "php artisan clear-compiled",
       "php artisan stylist:publish",
       "php artisan module:publish",
-      "php artisan module:migrate --force",
       "php artisan optimize"
     ],
     "post-create-project-cmd": [

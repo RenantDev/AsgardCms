@@ -166,6 +166,7 @@ return [
 
 
 		Modules\Core\Providers\AsgardServiceProvider::class,
+		Creitive\Breadcrumbs\BreadcrumbsServiceProvider::class,
 	],
 
 	/*
@@ -213,5 +214,6 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Breadcrumbs' => Creitive\Breadcrumbs\Facades\Breadcrumbs::class,
 	],
 ];

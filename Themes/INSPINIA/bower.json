@@ -1,0 +1,21 @@
+{
+  "name": "INSPINIA",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "components-font-awesome": "^4.5.0",
+    "datatables.net": "^1.10.11",
+    "datatables.net-bs": "^1.10.11"
+  }
+}

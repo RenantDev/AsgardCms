@@ -20,7 +20,8 @@ return [
     | Which administration theme to use for the back end interface
     |--------------------------------------------------------------------------
     */
-    'admin-theme' => 'AdminLTE',
+    //'admin-theme' => 'Adminlte',
+    'admin-theme' => 'INSPINIA',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +31,8 @@ return [
     | colors are available for you to use: skin-blue, skin-green,
     | skin-black, skin-purple, skin-red and skin-yellow.
     */
-    'skin' => 'skin-blue',
+    //'skin' => 'skin-blue',
+    'skin' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +110,7 @@ return [
     | through the asset pipeline
     |--------------------------------------------------------------------------
     */
-    'admin-required-assets' => [
+    /*'admin-required-assets' => [
         'css' => [
             'bootstrap.css',
             'font-awesome.css',
@@ -134,6 +136,21 @@ return [
             'app.js',
             'pace.js',
             'main.js',
+            'sisyphus.js',
+        ],
+    ],*/
+
+    'admin-required-assets' => [
+        'css' => [
+            'dataTables.bootstrap.css',
+            'icheck.blue.css',
+            'animate.css',
+        ],
+        'js' => [
+            'icheck.js',
+            'jquery.dataTables.js',
+            'dataTables.bootstrap.js',
+            'keypressAction.js',
             'sisyphus.js',
         ],
     ],

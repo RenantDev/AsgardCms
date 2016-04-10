@@ -1,0 +1,1 @@
+<span class="label label-info {{ $badge->getClass() }} pull-right">{{ $badge->getValue() }}</span>
