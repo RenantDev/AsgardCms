@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Internationalisation;
+<?php
+
+namespace Modules\Core\Internationalisation;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -7,17 +9,20 @@ abstract class BaseFormRequest extends FormRequest
 {
     /**
      * Set the translation key prefix for attributes.
+     *
      * @var string
      */
     protected $translationsAttributesKey = 'validation.attributes.';
     /**
-     * Current processed locale
+     * Current processed locale.
+     *
      * @var string
      */
     protected $localeKey;
 
     /**
-     * Return an array of rules for translatable fields
+     * Return an array of rules for translatable fields.
+     *
      * @return array
      */
     public function translationRules()
@@ -26,7 +31,8 @@ abstract class BaseFormRequest extends FormRequest
     }
 
     /**
-     * Return an array of messages for translatable fields
+     * Return an array of messages for translatable fields.
+     *
      * @return array
      */
     public function translationMessages()
@@ -36,6 +42,7 @@ abstract class BaseFormRequest extends FormRequest
 
     /**
      * Get the validator instance for the request.
+     *
      * @return \Illuminate\Validation\Validator
      */
     protected function getValidatorInstance()
@@ -54,13 +61,13 @@ abstract class BaseFormRequest extends FormRequest
         foreach ($this->requiredLocales() as $localeKey => $locale) {
             $this->localeKey = $localeKey;
             foreach ($this->container->call([$this, 'translationRules']) as $attribute => $rule) {
-                $key = $localeKey . '.' . $attribute;
+                $key = $localeKey.'.'.$attribute;
                 $rules[$key] = $rule;
-                $attributes[$key] = trans($translationsAttributesKey . $attribute);
+                $attributes[$key] = trans($translationsAttributesKey.$attribute);
             }
 
             foreach ($this->container->call([$this, 'translationMessages']) as $attributeAndRule => $message) {
-                $messages[$localeKey . '.' . $attributeAndRule] = $message;
+                $messages[$localeKey.'.'.$attributeAndRule] = $message;
             }
         }
 
@@ -96,11 +103,12 @@ abstract class BaseFormRequest extends FormRequest
 
     /**
      * Get the validation for attributes key from the implementing class
-     * or use a sensible default
+     * or use a sensible default.
+     *
      * @return string
      */
     private function getTranslationsAttributesKey()
     {
-        return rtrim($this->translationsAttributesKey, '.') . '.';
+        return rtrim($this->translationsAttributesKey, '.').'.';
     }
 }

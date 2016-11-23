@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Repositories\Eloquent;
+<?php
+
+namespace Modules\Dashboard\Repositories\Eloquent;
 
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 use Modules\Dashboard\Repositories\WidgetRepository;
@@ -6,8 +8,10 @@ use Modules\Dashboard\Repositories\WidgetRepository;
 class EloquentWidgetRepository extends EloquentBaseRepository implements WidgetRepository
 {
     /**
-     * Find the saved state of widgets for the given user id
+     * Find the saved state of widgets for the given user id.
+     *
      * @param int $userId
+     *
      * @return string
      */
     public function findForUser($userId)
@@ -16,8 +20,10 @@ class EloquentWidgetRepository extends EloquentBaseRepository implements WidgetR
     }
 
     /**
-     * Update or create the given widgets for given user
+     * Update or create the given widgets for given user.
+     *
      * @param array $widgets
+     *
      * @return void
      */
     public function updateOrCreateForUser($widgets, $userId)

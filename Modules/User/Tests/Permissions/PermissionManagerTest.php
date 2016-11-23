@@ -46,7 +46,7 @@ class PermissionManagerTest extends BaseTestCase
             'permission2' => 'true',
             'permission3' => 'false',
             'permission4' => 'false',
-            'permission5' => 'true'
+            'permission5' => 'true',
         ];
 
         $expected = [
@@ -54,14 +54,14 @@ class PermissionManagerTest extends BaseTestCase
             'permission2' => true,
             'permission3' => false,
             'permission4' => false,
-            'permission5' => true
+            'permission5' => true,
         ];
 
         $manager = new PermissionManager();
 
         $actual = $manager->clean($input);
 
-        $this->assertSame($expected, $actual, "The PermissionManager should clean the permissions and fix their states.");
+        $this->assertSame($expected, $actual, 'The PermissionManager should clean the permissions and fix their states.');
     }
 
     protected function getModulesRepositoryMock()

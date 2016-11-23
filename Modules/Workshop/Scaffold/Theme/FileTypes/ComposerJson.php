@@ -1,4 +1,6 @@
-<?php namespace Modules\Workshop\Scaffold\Theme\FileTypes;
+<?php
+
+namespace Modules\Workshop\Scaffold\Theme\FileTypes;
 
 use Modules\Workshop\Scaffold\Theme\Traits\FindsThemePath;
 
@@ -7,12 +9,13 @@ class ComposerJson extends BaseFileType implements FileType
     use FindsThemePath;
 
     /**
-     * Generate the current file type
+     * Generate the current file type.
+     *
      * @return string
      */
     public function generate()
     {
-        $stub = $this->finder->get(__DIR__ . '/../stubs/composerJson.stub');
+        $stub = $this->finder->get(__DIR__.'/../stubs/composerJson.stub');
 
         $stub = $this->replaceContentInStub($stub);
 

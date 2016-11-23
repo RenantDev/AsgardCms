@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Http\Controllers\Api;
+<?php
+
+namespace Modules\Media\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -40,13 +42,15 @@ class MediaController extends Controller
 
         return [
             'count' => $files->count(),
-            'data' => $files,
+            'data'  => $files,
         ];
     }
 
     /**
      * Store a newly created resource in storage.
-     * @param  UploadMediaRequest $request
+     *
+     * @param UploadMediaRequest $request
+     *
      * @return Response
      */
     public function store(UploadMediaRequest $request)
@@ -63,7 +67,8 @@ class MediaController extends Controller
     }
 
     /**
-     * Link the given entity with a media file
+     * Link the given entity with a media file.
+     *
      * @param Request $request
      */
     public function linkMedia(Request $request)
@@ -84,21 +89,22 @@ class MediaController extends Controller
         event(new FileWasLinked($file, $entity));
 
         return Response::json([
-            'error' => false,
+            'error'   => false,
             'message' => 'The link has been added.',
-            'result' => ['path' => $thumbnailPath, 'imageableId' => $imageable->id]
+            'result'  => ['path' => $thumbnailPath, 'imageableId' => $imageable->id],
         ]);
     }
 
     /**
-     * Remove the record in the media__imageables table for the given id
+     * Remove the record in the media__imageables table for the given id.
+     *
      * @param Request $request
      */
     public function unlinkMedia(Request $request)
     {
         $imageableId = $request->get('imageableId');
         $deleted = DB::table('media__imageables')->whereId($imageableId)->delete();
-        if (! $deleted) {
+        if (!$deleted) {
             return Response::json(['error' => true, 'message' => 'The file was not found.']);
         }
 
@@ -108,7 +114,8 @@ class MediaController extends Controller
     }
 
     /**
-     * Sort the record in the media__imageables table for the given array
+     * Sort the record in the media__imageables table for the given array.
+     *
      * @param Request $request
      */
     public function sortMedia(Request $request)

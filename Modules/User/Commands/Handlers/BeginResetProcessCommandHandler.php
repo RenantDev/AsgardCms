@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Commands\Handlers;
+<?php
+
+namespace Modules\User\Commands\Handlers;
 
 use Illuminate\Support\Facades\Event;
 use Modules\Core\Contracts\Authentication;
@@ -24,10 +26,12 @@ class BeginResetProcessCommandHandler
     }
 
     /**
-     * Handle the command
+     * Handle the command.
      *
      * @param $command
+     *
      * @throws UserNotFoundException
+     *
      * @return mixed
      */
     public function handle($command)

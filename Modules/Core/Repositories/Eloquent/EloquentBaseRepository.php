@@ -1,12 +1,12 @@
-<?php namespace Modules\Core\Repositories\Eloquent;
+<?php
+
+namespace Modules\Core\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Core\Repositories\BaseRepository;
 
 /**
- * Class EloquentCoreRepository
- *
- * @package Modules\Core\Repositories\Eloquent
+ * Class EloquentCoreRepository.
  */
 abstract class EloquentBaseRepository implements BaseRepository
 {
@@ -24,7 +24,8 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * @param  int    $id
+     * @param int $id
+     *
      * @return object
      */
     public function find($id)
@@ -49,7 +50,8 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * @param  mixed  $data
+     * @param mixed $data
+     *
      * @return object
      */
     public function create($data)
@@ -59,7 +61,8 @@ abstract class EloquentBaseRepository implements BaseRepository
 
     /**
      * @param $model
-     * @param  array  $data
+     * @param array $data
+     *
      * @return object
      */
     public function update($model, $data)
@@ -70,7 +73,8 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * @param  Model $model
+     * @param Model $model
+     *
      * @return bool
      */
     public function destroy($model)
@@ -79,9 +83,10 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * Return all resources in the given language
+     * Return all resources in the given language.
      *
-     * @param  string                                   $lang
+     * @param string $lang
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allTranslatedIn($lang)
@@ -92,9 +97,10 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * Find a resource by the given slug
+     * Find a resource by the given slug.
      *
-     * @param  string $slug
+     * @param string $slug
+     *
      * @return object
      */
     public function findBySlug($slug)
@@ -109,8 +115,10 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * Find a resource by an array of attributes
-     * @param  array  $attributes
+     * Find a resource by an array of attributes.
+     *
+     * @param array $attributes
+     *
      * @return object
      */
     public function findByAttributes(array $attributes)
@@ -121,10 +129,12 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * Get resources by an array of attributes
-     * @param array $attributes
+     * Get resources by an array of attributes.
+     *
+     * @param array       $attributes
      * @param null|string $orderBy
-     * @param string $sortOrder
+     * @param string      $sortOrder
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getByAttributes(array $attributes, $orderBy = null, $sortOrder = 'asc')
@@ -135,10 +145,12 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * Build Query to catch resources by an array of attributes and params
-     * @param array $attributes
+     * Build Query to catch resources by an array of attributes and params.
+     *
+     * @param array       $attributes
      * @param null|string $orderBy
-     * @param string $sortOrder
+     * @param string      $sortOrder
+     *
      * @return \Illuminate\Database\Query\Builder object
      */
     private function buildQueryByAttributes(array $attributes, $orderBy = null, $sortOrder = 'asc')
@@ -161,8 +173,10 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * Return a collection of elements who's ids match
+     * Return a collection of elements who's ids match.
+     *
      * @param array $ids
+     *
      * @return mixed
      */
     public function findByMany(array $ids)
@@ -173,11 +187,12 @@ abstract class EloquentBaseRepository implements BaseRepository
             $query = $query->with('translations');
         }
 
-        return $query->whereIn("id", $ids)->get();
+        return $query->whereIn('id', $ids)->get();
     }
 
     /**
-     * Clear the cache for this Repositories' Entity
+     * Clear the cache for this Repositories' Entity.
+     *
      * @return bool
      */
     public function clearCache()

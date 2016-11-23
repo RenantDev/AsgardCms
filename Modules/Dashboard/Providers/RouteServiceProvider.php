@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Providers;
+<?php
+
+namespace Modules\Dashboard\Providers;
 
 use Modules\Core\Providers\RoutingServiceProvider as CoreRoutingServiceProvider;
 
@@ -6,6 +8,7 @@ class RouteServiceProvider extends CoreRoutingServiceProvider
 {
     /**
      * The root namespace to assume when generating URLs to actions.
+     *
      * @var string
      */
     protected $namespace = 'Modules\Dashboard\Http\Controllers';
@@ -23,7 +26,7 @@ class RouteServiceProvider extends CoreRoutingServiceProvider
      */
     protected function getBackendRoute()
     {
-        return __DIR__ . '/../Http/backendRoutes.php';
+        return __DIR__.'/../Http/backendRoutes.php';
     }
 
     /**

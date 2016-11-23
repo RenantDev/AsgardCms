@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Router;
 
-/** @var Router $router */
+/* @var Router $router */
 $router->bind('page', function ($id) {
     return app(\Modules\Page\Repositories\PageRepository::class)->find($id);
 });

@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Providers;
+<?php
+
+namespace Modules\Menu\Providers;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -32,7 +34,7 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register all online menus on the Pingpong/Menu package
+     * Register all online menus on the Pingpong/Menu package.
      */
     public function boot()
     {
@@ -46,11 +48,11 @@ class MenuServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     /**
-     * Register class binding
+     * Register class binding.
      */
     private function registerBindings()
     {
@@ -59,7 +61,7 @@ class MenuServiceProvider extends ServiceProvider
             function () {
                 $repository = new EloquentMenuRepository(new Menu());
 
-                if (! config('app.cache')) {
+                if (!config('app.cache')) {
                     return $repository;
                 }
 
@@ -72,7 +74,7 @@ class MenuServiceProvider extends ServiceProvider
             function () {
                 $repository = new EloquentMenuItemRepository(new Menuitem());
 
-                if (! config('app.cache')) {
+                if (!config('app.cache')) {
                     return $repository;
                 }
 
@@ -82,9 +84,10 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Add a menu item to the menu
+     * Add a menu item to the menu.
+     *
      * @param Menuitem $item
-     * @param Builder $menu
+     * @param Builder  $menu
      */
     public function addItemToMenu(Menuitem $item, Builder $menu)
     {
@@ -95,17 +98,17 @@ class MenuServiceProvider extends ServiceProvider
             $menu->url(
                 $target,
                 $item->title,
-                ['target' => $item->target,
-                    'icon' => $item->icon]
+                ['target'  => $item->target,
+                    'icon' => $item->icon, ]
             );
         }
     }
 
     /**
-     * Add children to menu under the give name
+     * Add children to menu under the give name.
      *
-     * @param string $name
-     * @param object $children
+     * @param string           $name
+     * @param object           $children
      * @param Builder|MenuItem $menu
      */
     private function addChildrenToMenu($name, $children, $menu, $attribs = [])
@@ -118,8 +121,9 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Add children to the given menu recursively
-     * @param Menuitem $child
+     * Add children to the given menu recursively.
+     *
+     * @param Menuitem         $child
      * @param PingpongMenuItem $sub
      */
     private function addSubItemToMenu(Menuitem $child, PingpongMenuItem $sub)
@@ -133,9 +137,10 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Check if the given menu item has children
+     * Check if the given menu item has children.
      *
-     * @param  object $item
+     * @param object $item
+     *
      * @return bool
      */
     private function hasChildren($item)
@@ -144,11 +149,11 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the active menus
+     * Register the active menus.
      */
     private function registerMenus()
     {
-        if (! $this->app['asgard.isInstalled']) {
+        if (!$this->app['asgard.isInstalled']) {
             return;
         }
         $menu = $this->app->make('Modules\Menu\Repositories\MenuRepository');

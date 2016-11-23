@@ -1,5 +1,8 @@
-<?php namespace Modules\Menu\Http\Controllers\Admin;
+<?php
 
+namespace Modules\Menu\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use Illuminate\Foundation\Http\FormRequest;
 use Laracasts\Flash\Flash;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -9,7 +12,6 @@ use Modules\Menu\Http\Requests\CreateMenuItemRequest;
 use Modules\Menu\Http\Requests\UpdateMenuItemRequest;
 use Modules\Menu\Repositories\MenuItemRepository;
 use Modules\Page\Repositories\PageRepository;
-use Breadcrumbs;
 use URL;
 
 class MenuItemController extends AdminBaseController
@@ -29,7 +31,7 @@ class MenuItemController extends AdminBaseController
         $this->menuItem = $menuItem;
         $this->page = $page;
 
-        Breadcrumbs::addCrumb(trans('menu::menu.breadcrumb.menu'),URL::route('admin.menu.menu.index'));
+        Breadcrumbs::addCrumb(trans('menu::menu.breadcrumb.menu'), URL::route('admin.menu.menu.index'));
     }
 
     public function create(Menu $menu)
@@ -78,8 +80,9 @@ class MenuItemController extends AdminBaseController
     }
 
     /**
-     * @param  Menu                                    $menu
-     * @param  \Illuminate\Foundation\Http\FormRequest $request
+     * @param Menu                                    $menu
+     * @param \Illuminate\Foundation\Http\FormRequest $request
+     *
      * @return array
      */
     private function addMenuId(Menu $menu, FormRequest $request)

@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Http\Requests;
+<?php
+
+namespace Modules\Menu\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -9,7 +11,7 @@ class UpdateMenuRequest extends FormRequest
         $menu = $this->route()->getParameter('menu');
 
         return [
-            'name' => 'required',
+            'name'    => 'required',
             'primary' => "unique:menu__menus,primary,{$menu->id}",
         ];
     }
@@ -22,7 +24,7 @@ class UpdateMenuRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => trans('menu::validation.name is required'),
+            'name.required'  => trans('menu::validation.name is required'),
             'primary.unique' => trans('menu::validation.only one primary menu'),
         ];
     }

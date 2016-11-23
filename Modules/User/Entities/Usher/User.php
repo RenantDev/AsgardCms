@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Entities\Usher;
+<?php
+
+namespace Modules\User\Entities\Usher;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,7 +15,7 @@ use Modules\User\Entities\UserInterface;
  */
 class User extends UsherUser implements UserInterface
 {
-    /**
+    /*
      * Traits
      */
     use PresentableTrait;
@@ -26,6 +28,7 @@ class User extends UsherUser implements UserInterface
     /**
      * @ORM\ManyToMany(targetEntity="Role", inversedBy="users")
      * @ORM\JoinTable(name="user_roles")
+     *
      * @var ArrayCollection|\Maatwebsite\Usher\Contracts\Roles\Role[]
      */
     protected $roles;
@@ -64,26 +67,26 @@ class User extends UsherUser implements UserInterface
 
     /**
      * @param $attribute
+     *
      * @return null|string
      */
     public function __get($attribute)
     {
-        $method = 'get' . studly_case($attribute);
+        $method = 'get'.studly_case($attribute);
 
         if (method_exists($this, $method)) {
             return $this->{$method}();
         }
-
-        return null;
     }
 
     /**
      * @param $attribute
+     *
      * @return bool
      */
     public function __isset($attribute)
     {
-        $method = 'get' . studly_case($attribute);
+        $method = 'get'.studly_case($attribute);
 
         if (method_exists($this, $method)) {
             return true;
@@ -93,8 +96,10 @@ class User extends UsherUser implements UserInterface
     }
 
     /**
-     * Checks if a user belongs to the given Role ID
-     * @param  int $roleId
+     * Checks if a user belongs to the given Role ID.
+     *
+     * @param int $roleId
+     *
      * @return bool
      */
     public function hasRoleId($roleId)
@@ -102,8 +107,10 @@ class User extends UsherUser implements UserInterface
     }
 
     /**
-     * Checks if a user belongs to the given Role Name
-     * @param  string $name
+     * Checks if a user belongs to the given Role Name.
+     *
+     * @param string $name
+     *
      * @return bool
      */
     public function hasRoleName($name)
@@ -111,7 +118,8 @@ class User extends UsherUser implements UserInterface
     }
 
     /**
-     * Check if the current user is activated
+     * Check if the current user is activated.
+     *
      * @return bool
      */
     public function isActivated()

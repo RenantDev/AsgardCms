@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Providers;
+<?php
+
+namespace Modules\Dashboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Dashboard\Entities\Widget;
@@ -26,7 +28,7 @@ class DashboardServiceProvider extends ServiceProvider
             function () {
                 $repository = new EloquentWidgetRepository(new Widget());
 
-                if (! config('app.cache')) {
+                if (!config('app.cache')) {
                     return $repository;
                 }
 
@@ -42,6 +44,6 @@ class DashboardServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Http\Middleware;
+<?php
+
+namespace Modules\Core\Http\Middleware;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -37,14 +39,15 @@ class AdminMiddleware
         $this->redirect = $redirect;
         $this->application = $application;
 
-        \Breadcrumbs::addCrumb(trans('core::core.breadcrumb.home'),\URL::route('dashboard.index'));
+        \Breadcrumbs::addCrumb(trans('core::core.breadcrumb.home'), \URL::route('dashboard.index'));
     }
 
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, \Closure $next)
@@ -59,7 +62,7 @@ class AdminMiddleware
         }
 
         // Check if the user has access to the dashboard page
-        if (! $this->auth->hasAccess('dashboard.index')) {
+        if (!$this->auth->hasAccess('dashboard.index')) {
             // Show the insufficient permissions page
             return $this->application->abort(403);
         }

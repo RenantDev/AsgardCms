@@ -1,4 +1,6 @@
-<?php namespace Modules\Workshop\Scaffold\Module;
+<?php
+
+namespace Modules\Workshop\Scaffold\Module;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Console\Kernel;
@@ -11,22 +13,26 @@ use Modules\Workshop\Scaffold\Module\Generators\ValueObjectGenerator;
 class ModuleScaffold
 {
     /**
-     * Contains the vendor name
+     * Contains the vendor name.
+     *
      * @var string
      */
     protected $vendor;
     /**
-     * Contains the Module name
+     * Contains the Module name.
+     *
      * @var string
      */
     protected $name;
     /**
-     * Contains an array of entities to generate
+     * Contains an array of entities to generate.
+     *
      * @var array
      */
     protected $entities;
     /**
-     * Contains an array of value objects to generate
+     * Contains an array of value objects to generate.
+     *
      * @var array
      */
     protected $valueObjects;
@@ -34,8 +40,8 @@ class ModuleScaffold
      * @var array of files to generate
      */
     protected $files = [
-        'permissions.stub' => 'Config/permissions',
-        'routes.stub' => 'Http/backendRoutes',
+        'permissions.stub'    => 'Config/permissions',
+        'routes.stub'         => 'Http/backendRoutes',
         'route-provider.stub' => 'Providers/RouteServiceProvider',
     ];
     /**
@@ -82,16 +88,14 @@ class ModuleScaffold
         $this->filesGenerator = $filesGenerator;
     }
 
-    /**
-     *
-     */
+
     public function scaffold()
     {
         if ($this->finder->isDirectory($this->getModulesPath())) {
             throw new ModuleExistsException();
         }
 
-        $this->artisan->call("module:make", ['name' => [$this->name]]);
+        $this->artisan->call('module:make', ['name' => [$this->name]]);
 
         $this->addDataToComposerFile();
         $this->removeUnneededFiles();
@@ -108,7 +112,8 @@ class ModuleScaffold
     }
 
     /**
-     * @param  string $vendor
+     * @param string $vendor
+     *
      * @return $this
      */
     public function vendor($vendor)
@@ -119,7 +124,8 @@ class ModuleScaffold
     }
 
     /**
-     * @param  string $name
+     * @param string $name
+     *
      * @return $this
      */
     public function name($name)
@@ -130,8 +136,10 @@ class ModuleScaffold
     }
 
     /**
-     * Set the entity type [Eloquent, Doctrine]
-     * @param  string $entityType
+     * Set the entity type [Eloquent, Doctrine].
+     *
+     * @param string $entityType
+     *
      * @return $this
      */
     public function setEntityType($entityType)
@@ -142,7 +150,8 @@ class ModuleScaffold
     }
 
     /**
-     * @param  array $entities
+     * @param array $entities
+     *
      * @return $this
      */
     public function withEntities(array $entities)
@@ -153,7 +162,8 @@ class ModuleScaffold
     }
 
     /**
-     * @param  array $valueObjects
+     * @param array $valueObjects
+     *
      * @return $this
      */
     public function withValueObjects(array $valueObjects)
@@ -164,18 +174,20 @@ class ModuleScaffold
     }
 
     /**
-     * Return the current module path
-     * @param  string $path
+     * Return the current module path.
+     *
+     * @param string $path
+     *
      * @return string
      */
     private function getModulesPath($path = '')
     {
-        return $this->config->get('modules.paths.modules') . "/{$this->name}/$path";
+        return $this->config->get('modules.paths.modules')."/{$this->name}/$path";
     }
 
     /**
      * Rename the default vendor name 'pingpong-modules'
-     * by the input vendor name
+     * by the input vendor name.
      */
     private function renameVendorName()
     {
@@ -185,7 +197,7 @@ class ModuleScaffold
     }
 
     /**
-     * Remove the default generated view resources
+     * Remove the default generated view resources.
      */
     private function removeViewResources()
     {
@@ -195,7 +207,7 @@ class ModuleScaffold
     }
 
     /**
-     * Remove all unneeded files
+     * Remove all unneeded files.
      */
     private function removeUnneededFiles()
     {
@@ -221,8 +233,10 @@ class ModuleScaffold
     }
 
     /**
-     * Load the routing service provider
+     * Load the routing service provider.
+     *
      * @param string $content
+     *
      * @return string
      */
     private function loadProviders($content)
@@ -232,14 +246,16 @@ class ModuleScaffold
         "Modules\\\\{$this->name}\\\Providers\\\RouteServiceProvider"
 JSON;
 
-        $oldProvider = '"Modules\\\\' . $this->name . '\\\\Providers\\\\' . $this->name . 'ServiceProvider"';
+        $oldProvider = '"Modules\\\\'.$this->name.'\\\\Providers\\\\'.$this->name.'ServiceProvider"';
 
         return  str_replace($oldProvider, $newProviders, $content);
     }
 
     /**
-     * Set the module order to 1
+     * Set the module order to 1.
+     *
      * @param string $content
+     *
      * @return string
      */
     private function setModuleOrderOrder($content)
@@ -249,8 +265,10 @@ JSON;
 
     /**
      * Remove the start.php start file
-     * Also removes the auto loading of that file
+     * Also removes the auto loading of that file.
+     *
      * @param string $content
+     *
      * @return string
      */
     private function removeStartPhpFile($content)
@@ -261,7 +279,7 @@ JSON;
     }
 
     /**
-     * Add required folders
+     * Add required folders.
      */
     private function addFolders()
     {
@@ -274,7 +292,8 @@ JSON;
      * - a asgard/module type
      * - package requirements
      * - minimum stability
-     * - prefer stable
+     * - prefer stable.
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     private function addDataToComposerFile()
@@ -283,7 +302,7 @@ JSON;
 
         $name = ucfirst($this->name);
 
-        $search = <<<JSON
+        $search = <<<'JSON'
 "description": "",
 JSON;
         $replace = <<<JSON

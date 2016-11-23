@@ -1,4 +1,6 @@
-<?php namespace Modules\Page\Repositories\Cache;
+<?php
+
+namespace Modules\Page\Repositories\Cache;
 
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 use Modules\Page\Repositories\PageRepository;
@@ -18,7 +20,7 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
     }
 
     /**
-     * Find the page set as homepage
+     * Find the page set as homepage.
      *
      * @return object
      */
@@ -34,7 +36,8 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
     }
 
     /**
-     * Count all records
+     * Count all records.
+     *
      * @return int
      */
     public function countAll()

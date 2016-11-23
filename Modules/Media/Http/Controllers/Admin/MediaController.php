@@ -1,5 +1,8 @@
-<?php namespace Modules\Media\Http\Controllers\Admin;
+<?php
 
+namespace Modules\Media\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use Illuminate\Contracts\Config\Repository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Media\Entities\File;
@@ -7,7 +10,6 @@ use Modules\Media\Http\Requests\UpdateMediaRequest;
 use Modules\Media\Image\Imagy;
 use Modules\Media\Image\ThumbnailsManager;
 use Modules\Media\Repositories\FileRepository;
-use Breadcrumbs;
 use URL;
 
 class MediaController extends AdminBaseController
@@ -37,7 +39,7 @@ class MediaController extends AdminBaseController
         $this->imagy = $imagy;
         $this->thumbnailsManager = $thumbnailsManager;
 
-        Breadcrumbs::addCrumb(trans('media::media.breadcrumb.media'),URL::route('admin.media.media.index'));
+        Breadcrumbs::addCrumb(trans('media::media.breadcrumb.media'), URL::route('admin.media.media.index'));
     }
 
     /**
@@ -67,7 +69,8 @@ class MediaController extends AdminBaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  File     $file
+     * @param File $file
+     *
      * @return Response
      */
     public function edit(File $file)
@@ -82,8 +85,9 @@ class MediaController extends AdminBaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  File               $file
-     * @param  UpdateMediaRequest $request
+     * @param File               $file
+     * @param UpdateMediaRequest $request
+     *
      * @return Response
      */
     public function update(File $file, UpdateMediaRequest $request)
@@ -98,8 +102,10 @@ class MediaController extends AdminBaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  File     $file
+     * @param File $file
+     *
      * @internal param int $id
+     *
      * @return Response
      */
     public function destroy(File $file)

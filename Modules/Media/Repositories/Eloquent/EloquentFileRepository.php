@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Repositories\Eloquent;
+<?php
+
+namespace Modules\Media\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Collection;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
@@ -10,9 +12,11 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class EloquentFileRepository extends EloquentBaseRepository implements FileRepository
 {
     /**
-     * Update a resource
-     * @param  File  $file
+     * Update a resource.
+     *
+     * @param File $file
      * @param $data
+     *
      * @return mixed
      */
     public function update($file, $data)
@@ -23,8 +27,10 @@ class EloquentFileRepository extends EloquentBaseRepository implements FileRepos
     }
 
     /**
-     * Create a file row from the given file
-     * @param  UploadedFile $file
+     * Create a file row from the given file.
+     *
+     * @param UploadedFile $file
+     *
      * @return mixed
      */
     public function createFromFile(UploadedFile $file)
@@ -38,11 +44,11 @@ class EloquentFileRepository extends EloquentBaseRepository implements FileRepos
         }
 
         return $this->model->create([
-            'filename' => $fileName,
-            'path' => config('asgard.media.config.files-path') . "{$fileName}",
-            'extension' => substr(strrchr($fileName, "."), 1),
-            'mimetype' => $file->getClientMimeType(),
-            'filesize' => $file->getFileInfo()->getSize(),
+            'filename'  => $fileName,
+            'path'      => config('asgard.media.config.files-path')."{$fileName}",
+            'extension' => substr(strrchr($fileName, '.'), 1),
+            'mimetype'  => $file->getClientMimeType(),
+            'filesize'  => $file->getFileInfo()->getSize(),
             'folder_id' => 0,
         ]);
     }
@@ -53,9 +59,11 @@ class EloquentFileRepository extends EloquentBaseRepository implements FileRepos
     }
 
     /**
-     * Find a file for the entity by zone
+     * Find a file for the entity by zone.
+     *
      * @param $zone
      * @param object $entity
+     *
      * @return object
      */
     public function findFileByZoneForEntity($zone, $entity)
@@ -70,9 +78,11 @@ class EloquentFileRepository extends EloquentBaseRepository implements FileRepos
     }
 
     /**
-     * Find multiple files for the given zone and entity
-     * @param zone $zone
+     * Find multiple files for the given zone and entity.
+     *
+     * @param zone   $zone
      * @param object $entity
+     *
      * @return object
      */
     public function findMultipleFilesByZoneForEntity($zone, $entity)
@@ -89,6 +99,7 @@ class EloquentFileRepository extends EloquentBaseRepository implements FileRepos
 
     /**
      * @param $fileName
+     *
      * @return string
      */
     private function getNewUniqueFilename($fileName)
@@ -101,6 +112,6 @@ class EloquentFileRepository extends EloquentBaseRepository implements FileRepos
         $version = substr($latestFilename, -1, strpos($latestFilename, '_'));
         $version++;
 
-        return $fileNameOnly . '_' . $version . '.' . $extension;
+        return $fileNameOnly.'_'.$version.'.'.$extension;
     }
 }

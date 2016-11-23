@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Foundation\Asset\Pipeline;
+<?php
+
+namespace Modules\Core\Foundation\Asset\Pipeline;
 
 use Illuminate\Support\Collection;
 use Modules\Core\Foundation\Asset\AssetNotFoundException;
@@ -23,10 +25,13 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Add a javascript dependency on the view
+     * Add a javascript dependency on the view.
+     *
      * @param string $dependency
-     * @return $this
+     *
      * @throws AssetNotFoundException
+     *
+     * @return $this
      */
     public function requireJs($dependency)
     {
@@ -46,10 +51,13 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Add a CSS dependency on the view
+     * Add a CSS dependency on the view.
+     *
      * @param string $dependency
-     * @return $this
+     *
      * @throws AssetNotFoundException
+     *
+     * @return $this
      */
     public function requireCss($dependency)
     {
@@ -69,8 +77,10 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Add the dependency after another one
+     * Add the dependency after another one.
+     *
      * @param string $dependency
+     *
      * @return void
      */
     public function after($dependency)
@@ -79,8 +89,10 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Add the dependency before another one
+     * Add the dependency before another one.
+     *
      * @param string $dependency
+     *
      * @return void
      */
     public function before($dependency)
@@ -89,7 +101,8 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Insert a dependency before or after in the right dependency array
+     * Insert a dependency before or after in the right dependency array.
+     *
      * @param string $dependency
      * @param string $offset
      */
@@ -112,7 +125,8 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Return all css files to include
+     * Return all css files to include.
+     *
      * @return \Illuminate\Support\Collection
      */
     public function allCss()
@@ -121,7 +135,8 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Return all js files to include
+     * Return all js files to include.
+     *
      * @return \Illuminate\Support\Collection
      */
     public function allJs()
@@ -130,8 +145,10 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Find in which collection the given dependency exists
+     * Find in which collection the given dependency exists.
+     *
      * @param string $dependency
+     *
      * @return array
      */
     private function findDependenciesForKey($dependency)
@@ -144,8 +161,10 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Get the last key and value the given array
+     * Get the last key and value the given array.
+     *
      * @param array $dependencyArray
+     *
      * @return array
      */
     private function getLastKeyAndValueOf(array $dependencyArray)
@@ -158,10 +177,11 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * Return the position in the array of the given key
+     * Return the position in the array of the given key.
      *
      * @param $dependency
      * @param array $dependencyArray
+     *
      * @return int
      */
     private function getPositionInArray($dependency, array $dependencyArray)
@@ -172,8 +192,10 @@ class AsgardAssetPipeline implements AssetPipeline
     }
 
     /**
-     * If asset was not found, throw an exception
+     * If asset was not found, throw an exception.
+     *
      * @param string $assetPath
+     *
      * @throws AssetNotFoundException
      */
     private function guardForAssetNotFound($assetPath)

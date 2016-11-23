@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Tests;
+<?php
+
+namespace Modules\Core\Tests;
 
 use Orchestra\Testbench\TestCase;
 
@@ -25,21 +27,21 @@ abstract class BaseTestCase extends TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', array(
-            'driver' => 'sqlite',
+        $app['config']->set('database.connections.sqlite', [
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
-        ));
+            'prefix'   => '',
+        ]);
         $app['config']->set('translatable.locales', ['en', 'fr']);
     }
 
     protected function getPackageAliases($app)
     {
         return [
-            'Eloquent' => 'Illuminate\Database\Eloquent\Model',
-            'LaravelLocalization' => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization'
+            'Eloquent'            => 'Illuminate\Database\Eloquent\Model',
+            'LaravelLocalization' => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization',
         ];
     }
 }

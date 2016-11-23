@@ -1,4 +1,6 @@
-<?php namespace Modules\Workshop\Manager;
+<?php
+
+namespace Modules\Workshop\Manager;
 
 use Illuminate\Contracts\Filesystem\Filesystem;
 
@@ -15,8 +17,10 @@ class PackageInformation
     }
 
     /**
-     * Get the exact installed version for the specified package
+     * Get the exact installed version for the specified package.
+     *
      * @param string $packageName
+     *
      * @return string mixed
      */
     public function getPackageInfo($packageName)

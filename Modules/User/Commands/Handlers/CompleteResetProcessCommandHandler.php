@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Commands\Handlers;
+<?php
+
+namespace Modules\User\Commands\Handlers;
 
 use Modules\Core\Contracts\Authentication;
 use Modules\User\Exceptions\InvalidOrExpiredResetCode;
@@ -24,11 +26,13 @@ class CompleteResetProcessCommandHandler
     }
 
     /**
-     * Handle the command
+     * Handle the command.
      *
      * @param $command
+     *
      * @throws InvalidOrExpiredResetCode
      * @throws UserNotFoundException
+     *
      * @return mixed
      */
     public function handle($command)

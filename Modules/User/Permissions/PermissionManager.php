@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Permissions;
+<?php
+
+namespace Modules\User\Permissions;
 
 use Pingpong\Modules\Module;
 
@@ -9,22 +11,22 @@ class PermissionManager
      */
     private $module;
 
-    /**
-     */
+
     public function __construct()
     {
         $this->module = app('modules');
     }
 
     /**
-     * Get the permissions from all the enabled modules
+     * Get the permissions from all the enabled modules.
+     *
      * @return array
      */
     public function all()
     {
         $permissions = [];
         foreach ($this->module->enabled() as $enabledModule) {
-            $configuration = config(strtolower('asgard.' . $enabledModule->getName()) . '.permissions');
+            $configuration = config(strtolower('asgard.'.$enabledModule->getName()).'.permissions');
             if ($configuration) {
                 $permissions[$enabledModule->getName()] = $configuration;
             }
@@ -34,8 +36,10 @@ class PermissionManager
     }
 
     /**
-     * Return a correctly type casted permissions array
+     * Return a correctly type casted permissions array.
+     *
      * @param $permissions
+     *
      * @return array
      */
     public function clean($permissions)
@@ -53,6 +57,7 @@ class PermissionManager
 
     /**
      * @param $checkedPermission
+     *
      * @return bool
      */
     protected function getState($checkedPermission)
@@ -65,12 +70,14 @@ class PermissionManager
             return false;
         }
 
-        return (bool)$checkedPermission;
+        return (bool) $checkedPermission;
     }
 
     /**
      * Are all of the permissions passed of false value?
-     * @param array $permissions    Permissions array
+     *
+     * @param array $permissions Permissions array
+     *
      * @return bool
      */
     public function permissionsAreAllFalse(array $permissions)

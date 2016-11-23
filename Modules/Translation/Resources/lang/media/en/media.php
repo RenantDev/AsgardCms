@@ -2,7 +2,7 @@
 
 return [
     'title' => [
-        'media' => 'Media',
+        'media'      => 'Media',
         'edit media' => 'Edit media',
     ],
     'breadcrumb' => [
@@ -10,26 +10,26 @@ return [
     ],
     'table' => [
         'filename' => 'Filename',
-        'width' => 'Width',
-        'height' => 'Height',
+        'width'    => 'Width',
+        'height'   => 'Height',
     ],
     'form' => [
         'alt_attribute' => 'Alt attribute',
-        'description' => 'Description',
-        'keywords' => 'Keywords',
+        'description'   => 'Description',
+        'keywords'      => 'Keywords',
     ],
     'validation' => [
         'max_size' => 'Maximum folder size (:size) of the Media folder reached.',
     ],
     'file-sizes' => [
-        'B' => 'Bytes',
+        'B'  => 'Bytes',
         'KB' => 'Kb',
         'MB' => 'Mb',
         'GB' => 'Gb',
         'TB' => 'Tb',
     ],
     'choose file' => 'Choose a file',
-    'insert' => 'Insert this file',
+    'insert'      => 'Insert this file',
     'file picker' => 'File Picker',
-    'Browse' => 'Browse ...',
+    'Browse'      => 'Browse ...',
 ];

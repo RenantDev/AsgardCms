@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Tests\Asset;
+<?php
+
+namespace Modules\Core\Tests\Asset;
 
 use Modules\Core\Foundation\Asset\Manager\AsgardAssetManager;
 use Modules\Core\Tests\BaseTestCase;
@@ -104,7 +106,7 @@ class AsgardAssetManagerTest extends BaseTestCase
         $this->assetManager->addAssets([
             'jquery' => '/path/to/jquery.js',
             'plugin' => '/path/to/plugin.js',
-            'main' => '/path/to/main.css',
+            'main'   => '/path/to/main.css',
             'icheck' => '/path/to/icheck.css',
         ]);
 
@@ -116,7 +118,7 @@ class AsgardAssetManagerTest extends BaseTestCase
             'plugin' => '/path/to/plugin.js',
         ];
         $expectedCss = [
-            'main' => '/path/to/main.css',
+            'main'   => '/path/to/main.css',
             'icheck' => '/path/to/icheck.css',
         ];
 

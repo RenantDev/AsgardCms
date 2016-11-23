@@ -1,4 +1,5 @@
 <?php
+
 return [
     'media.media' => [
         'index',
@@ -11,5 +12,5 @@ return [
     'media.media-grid' => [
         'index',
         'ckIndex',
-    ]
+    ],
 ];

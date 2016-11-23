@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Http\Middleware;
+<?php
+
+namespace Modules\Core\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -6,8 +8,7 @@ use Modules\Core\Contracts\Authentication;
 
 /**
  * Class Authorization
- * Inspired by : https://github.com/spatie/laravel-authorize
- * @package Modules\Core\Http\Middleware
+ * Inspired by : https://github.com/spatie/laravel-authorize.
  */
 class Authorization
 {
@@ -18,6 +19,7 @@ class Authorization
 
     /**
      * Authorization constructor.
+     *
      * @param Authentication $auth
      */
     public function __construct(Authentication $auth)
@@ -29,6 +31,7 @@ class Authorization
      * @param $request
      * @param \Closure $next
      * @param $permission
+     *
      * @return \Illuminate\Http\RedirectResponse|Response
      */
     public function handle($request, \Closure $next, $permission)
@@ -43,6 +46,7 @@ class Authorization
     /**
      * @param Request $request
      * @param $permission
+     *
      * @return \Illuminate\Http\RedirectResponse|Response
      */
     private function handleUnauthorizedRequest(Request $request, $permission)
@@ -50,7 +54,7 @@ class Authorization
         if ($request->ajax()) {
             return response('Unauthorized.', Response::HTTP_UNAUTHORIZED);
         }
-        if (! $request->user()) {
+        if (!$request->user()) {
             return redirect()->guest('auth/login');
         }
 

@@ -1,4 +1,6 @@
-<?php namespace Modules\Workshop\Scaffold\Theme;
+<?php
+
+namespace Modules\Workshop\Scaffold\Theme;
 
 use Illuminate\Filesystem\Filesystem;
 use Modules\Workshop\Scaffold\Theme\Exceptions\ThemeExistsException;
@@ -22,7 +24,8 @@ class ThemeScaffold
     /**
      * Options array containing:
      *  - name
-     *  - type
+     *  - type.
+     *
      * @var array
      */
     protected $options;
@@ -61,6 +64,7 @@ class ThemeScaffold
 
     /**
      * @param $name
+     *
      * @return $this
      */
     public function setName($name)
@@ -76,6 +80,7 @@ class ThemeScaffold
 
     /**
      * @param string $type
+     *
      * @return $this
      */
     public function forType($type)
@@ -101,7 +106,8 @@ class ThemeScaffold
     }
 
     /**
-     * Set the files array on the class
+     * Set the files array on the class.
+     *
      * @param array $files
      */
     public function setFiles(array $files)

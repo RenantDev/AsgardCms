@@ -1,9 +1,11 @@
-<?php namespace Modules\Workshop\Http\Controllers\Admin;
+<?php
 
+namespace Modules\Workshop\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use FloatingPoint\Stylist\Theme\Theme;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Workshop\Manager\ThemeManager;
-use Breadcrumbs;
 
 class ThemesController extends AdminBaseController
 {
@@ -33,6 +35,7 @@ class ThemesController extends AdminBaseController
 
     /**
      * @param Theme $theme
+     *
      * @return \Illuminate\View\View
      */
     public function show(Theme $theme)

@@ -1,4 +1,6 @@
-<?php namespace Modules\Setting\Providers;
+<?php
+
+namespace Modules\Setting\Providers;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
@@ -44,7 +46,7 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     private function registerBindings()
@@ -52,7 +54,7 @@ class SettingServiceProvider extends ServiceProvider
         $this->app->bind(SettingRepository::class, function () {
             $repository = new EloquentSettingRepository(new Setting());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 

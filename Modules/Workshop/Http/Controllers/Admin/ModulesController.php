@@ -1,5 +1,8 @@
-<?php namespace Modules\Workshop\Http\Controllers\Admin;
+<?php
 
+namespace Modules\Workshop\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Response;
@@ -9,7 +12,6 @@ use Modules\Workshop\Manager\ModuleManager;
 use Pingpong\Modules\Module;
 use Pingpong\Modules\Repository;
 use Symfony\Component\Console\Output\BufferedOutput;
-use Breadcrumbs;
 
 class ModulesController extends AdminBaseController
 {
@@ -33,7 +35,8 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Display a list of all modules
+     * Display a list of all modules.
+     *
      * @return View
      */
     public function index()
@@ -44,22 +47,26 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Display module info
+     * Display module info.
+     *
      * @param Module $module
+     *
      * @return View
      */
     public function show(Module $module)
     {
         Breadcrumbs::addCrumb(trans('workshop::modules.viewing module'));
-        
+
         $changelog = $this->moduleManager->changelogFor($module);
 
         return view('workshop::admin.modules.show', compact('module', 'changelog'));
     }
 
     /**
-     * Disable the given module
+     * Disable the given module.
+     *
      * @param Module $module
+     *
      * @return mixed
      */
     public function disable(Module $module)
@@ -76,8 +83,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Enable the given module
+     * Enable the given module.
+     *
      * @param Module $module
+     *
      * @return mixed
      */
     public function enable(Module $module)
@@ -89,8 +98,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Update a given module
+     * Update a given module.
+     *
      * @param Request $request
+     *
      * @return Response json
      */
     public function update(Request $request)
@@ -102,8 +113,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Check if the given module is a core module that should be be disabled
+     * Check if the given module is a core module that should be be disabled.
+     *
      * @param Module $module
+     *
      * @return bool
      */
     private function isCoreModule(Module $module)

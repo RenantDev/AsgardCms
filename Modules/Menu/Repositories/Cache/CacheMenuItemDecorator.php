@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Repositories\Cache;
+<?php
+
+namespace Modules\Menu\Repositories\Cache;
 
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 use Modules\Menu\Repositories\MenuItemRepository;
@@ -18,9 +20,10 @@ class CacheMenuItemDecorator extends BaseCacheDecorator implements MenuItemRepos
     }
 
     /**
-     * Get all root elements
+     * Get all root elements.
      *
-     * @param  int   $menuId
+     * @param int $menuId
+     *
      * @return mixed
      */
     public function rootsForMenu($menuId)
@@ -35,7 +38,7 @@ class CacheMenuItemDecorator extends BaseCacheDecorator implements MenuItemRepos
     }
 
     /**
-     * Get the menu items ready for routes
+     * Get the menu items ready for routes.
      *
      * @return mixed
      */
@@ -51,9 +54,10 @@ class CacheMenuItemDecorator extends BaseCacheDecorator implements MenuItemRepos
     }
 
     /**
-     * Get the root menu item for the given menu id
+     * Get the root menu item for the given menu id.
      *
-     * @param  int    $menuId
+     * @param int $menuId
+     *
      * @return object
      */
     public function getRootForMenu($menuId)
@@ -68,9 +72,10 @@ class CacheMenuItemDecorator extends BaseCacheDecorator implements MenuItemRepos
     }
 
     /**
-     * Return a complete tree for the given menu id
+     * Return a complete tree for the given menu id.
      *
-     * @param  int    $menuId
+     * @param int $menuId
+     *
      * @return object
      */
     public function getTreeForMenu($menuId)
@@ -85,9 +90,10 @@ class CacheMenuItemDecorator extends BaseCacheDecorator implements MenuItemRepos
     }
 
     /**
-     * Get all root elements
+     * Get all root elements.
      *
-     * @param  int    $menuId
+     * @param int $menuId
+     *
      * @return object
      */
     public function allRootsForMenu($menuId)
@@ -102,8 +108,9 @@ class CacheMenuItemDecorator extends BaseCacheDecorator implements MenuItemRepos
     }
 
     /**
-     * @param  string $uri
-     * @param  string $locale
+     * @param string $uri
+     * @param string $locale
+     *
      * @return object
      */
     public function findByUriInLanguage($uri, $locale)

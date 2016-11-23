@@ -2,9 +2,9 @@
 
 return [
     'title' => [
-        'pages' => 'Pages',
+        'pages'       => 'Pages',
         'create page' => 'Create a page',
-        'edit page' => 'Edit a page',
+        'edit page'   => 'Edit a page',
     ],
     'button' => [
         'create page' => 'Create a page',
@@ -14,23 +14,23 @@ return [
         'slug' => 'Slug',
     ],
     'form' => [
-        'title' => 'Title',
-        'slug' => 'Slug',
-        'meta_data' => 'Meta data',
-        'meta_title' => 'Meta title',
+        'title'            => 'Title',
+        'slug'             => 'Slug',
+        'meta_data'        => 'Meta data',
+        'meta_title'       => 'Meta title',
         'meta_description' => 'Meta description',
-        'facebook_data' => 'Facebook data',
-        'og_title' => 'Facebook title',
-        'og_description' => 'Facebook description',
-        'og_type' => 'Facebook type',
-        'template' => 'Page template name',
-        'is homepage' => 'Homepage ?',
-        'body' => 'Body',
+        'facebook_data'    => 'Facebook data',
+        'og_title'         => 'Facebook title',
+        'og_description'   => 'Facebook description',
+        'og_type'          => 'Facebook type',
+        'template'         => 'Page template name',
+        'is homepage'      => 'Homepage ?',
+        'body'             => 'Body',
     ],
     'validation' => [
         'attributes' => [
             'title' => 'title',
-            'body' => 'body',
+            'body'  => 'body',
         ],
     ],
     'facebook-types' => [

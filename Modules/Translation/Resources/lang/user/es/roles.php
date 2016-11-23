@@ -5,20 +5,20 @@ return [
         'new-role' => 'Nuevo rol',
     ],
     'title' => [
-        'roles' => 'Roles',
-        'edit' => 'Editar rol',
+        'roles'            => 'Roles',
+        'edit'             => 'Editar rol',
         'users-with-roles' => 'Usuarios con este rol',
     ],
     'breadcrumb' => [
         'roles' => 'Roles',
-        'new' => 'Nuevo',
-        'edit' => 'Editar rol',
+        'new'   => 'Nuevo',
+        'edit'  => 'Editar rol',
     ],
     'table' => [
         'name' => 'Nombre',
     ],
     'tabs' => [
-        'data' => 'Datos',
+        'data'        => 'Datos',
         'permissions' => 'Permisos',
     ],
     'form' => [
@@ -26,10 +26,10 @@ return [
         'slug' => 'URL amigable del rol',
     ],
     'navigation' => [
-        'back to index' => 'Regresar'
+        'back to index' => 'Regresar',
     ],
-    'select all' => 'Seleccionar todos',
+    'select all'   => 'Seleccionar todos',
     'deselect all' => 'Deseleccionar todos',
-    'inherit' => 'Heredar de rol',
-    'swap' => 'Cambiar',
+    'inherit'      => 'Heredar de rol',
+    'swap'         => 'Cambiar',
 ];

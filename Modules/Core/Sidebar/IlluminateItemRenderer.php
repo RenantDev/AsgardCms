@@ -36,7 +36,7 @@ class IlluminateItemRenderer
         if ($item->isAuthorized()) {
             $items = [];
             foreach ($item->getItems() as $child) {
-                $items[] = (new IlluminateItemRenderer($this->factory))->render($child);
+                $items[] = (new self($this->factory))->render($child);
             }
 
             $badges = [];

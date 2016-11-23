@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Http\Requests;
+<?php
+
+namespace Modules\Media\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -42,6 +44,6 @@ class UploadMediaRequest extends FormRequest
 
         $bytes /= pow(1024, $pow);
 
-        return round($bytes, $precision) . ' ' . $units[$pow];
+        return round($bytes, $precision).' '.$units[$pow];
     }
 }

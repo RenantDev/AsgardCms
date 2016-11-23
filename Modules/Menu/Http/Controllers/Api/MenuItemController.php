@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Http\Controllers\Api;
+<?php
+
+namespace Modules\Menu\Http\Controllers\Api;
 
 use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Http\Request;
@@ -30,7 +32,8 @@ class MenuItemController extends Controller
     }
 
     /**
-     * Update all menu items
+     * Update all menu items.
+     *
      * @param Request $request
      */
     public function update(Request $request)
@@ -41,15 +44,17 @@ class MenuItemController extends Controller
     }
 
     /**
-     * Delete a menu item
+     * Delete a menu item.
+     *
      * @param Request $request
+     *
      * @return mixed
      */
     public function delete(Request $request)
     {
         $menuItem = $this->menuItem->find($request->get('menuitem'));
 
-        if (! $menuItem) {
+        if (!$menuItem) {
             return Response::json(['errors' => true]);
         }
 

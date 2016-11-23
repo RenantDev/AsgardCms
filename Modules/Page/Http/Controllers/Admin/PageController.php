@@ -1,11 +1,13 @@
-<?php namespace Modules\Page\Http\Controllers\Admin;
+<?php
 
+namespace Modules\Page\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Page\Entities\Page;
 use Modules\Page\Http\Requests\CreatePageRequest;
 use Modules\Page\Http\Requests\UpdatePageRequest;
 use Modules\Page\Repositories\PageRepository;
-use Breadcrumbs;
 use URL;
 
 class PageController extends AdminBaseController
@@ -22,7 +24,7 @@ class PageController extends AdminBaseController
         $this->page = $page;
         $this->assetPipeline->requireCss('icheck.blue.css');
 
-        Breadcrumbs::addCrumb(trans('page::pages.title.pages'),URL::route('admin.page.page.index'));
+        Breadcrumbs::addCrumb(trans('page::pages.title.pages'), URL::route('admin.page.page.index'));
     }
 
     public function index()
@@ -47,7 +49,8 @@ class PageController extends AdminBaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CreatePageRequest $request
+     * @param CreatePageRequest $request
+     *
      * @return Response
      */
     public function store(CreatePageRequest $request)
@@ -63,12 +66,13 @@ class PageController extends AdminBaseController
      * Show the form for editing the specified resource.
      *
      * @param Page $page
+     *
      * @return Response
      */
     public function edit(Page $page)
     {
         Breadcrumbs::addCrumb(trans('page::pages.title.edit page'));
-        
+
         $this->assetPipeline->requireJs('ckeditor.js');
         $this->assetPipeline->requireCss('icheck.blue.css');
 
@@ -78,8 +82,9 @@ class PageController extends AdminBaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param Page $page
-     * @param  UpdatePageRequest $request
+     * @param Page              $page
+     * @param UpdatePageRequest $request
+     *
      * @return Response
      */
     public function update(Page $page, UpdatePageRequest $request)
@@ -95,6 +100,7 @@ class PageController extends AdminBaseController
      * Remove the specified resource from storage.
      *
      * @param Page $page
+     *
      * @return Response
      */
     public function destroy(Page $page)

@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Tests;
+<?php
+
+namespace Modules\Media\Tests;
 
 use Illuminate\Support\Facades\App;
 use Modules\Media\Image\Imagy;
@@ -26,9 +28,7 @@ class ImagyTest extends MediaTestCase
     protected $mediaPath;
     private $testbenchPublicPath;
 
-    /**
-     *
-     */
+
     public function setUp()
     {
         parent::setUp();
@@ -37,8 +37,8 @@ class ImagyTest extends MediaTestCase
         $this->finder = App::make('Illuminate\Filesystem\Filesystem');
         $this->imagy = new Imagy(new InterventionFactory(), new ThumbnailsManager($this->config, $module), $this->config);
 
-        $this->testbenchPublicPath = __DIR__ . '/../vendor/orchestra/testbench/fixture/public/';
-        $this->mediaPath = __DIR__ . '/Fixtures/';
+        $this->testbenchPublicPath = __DIR__.'/../vendor/orchestra/testbench/fixture/public/';
+        $this->mediaPath = __DIR__.'/Fixtures/';
         $this->finder->copy("{$this->mediaPath}google-map.png", "{$this->testbenchPublicPath}google-map.png");
     }
 
@@ -50,7 +50,7 @@ class ImagyTest extends MediaTestCase
 
     public function it_should_create_a_file()
     {
-        $path = new MediaPath("/google-map.png");
+        $path = new MediaPath('/google-map.png');
         $this->imagy->get($path, 'smallThumb', true);
 
         $this->assertTrue($this->finder->isFile("{$this->testbenchPublicPath}google-map_smallThumb.png"));
@@ -61,7 +61,7 @@ class ImagyTest extends MediaTestCase
     {
         $this->imagy->get("{$this->mediaPath}test-pdf.pdf", 'smallThumb', true);
 
-        $this->assertFalse($this->finder->isFile(public_path() . "{$this->mediaPath}test-pdf_smallThumb.png"));
+        $this->assertFalse($this->finder->isFile(public_path()."{$this->mediaPath}test-pdf_smallThumb.png"));
     }
 
     /** @test */
@@ -69,7 +69,7 @@ class ImagyTest extends MediaTestCase
     {
         $path = $this->imagy->getThumbnail("{$this->mediaPath}google-map.png", 'smallThumb');
 
-        $expected = config('app.url') . config('asgard.media.config.files-path') . 'google-map_smallThumb.png';
+        $expected = config('app.url').config('asgard.media.config.files-path').'google-map_smallThumb.png';
 
         $this->assertEquals($expected, $path);
     }

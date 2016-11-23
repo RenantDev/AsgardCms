@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Providers;
+<?php
+
+namespace Modules\Core\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
@@ -16,7 +18,8 @@ abstract class RoutingServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router $router
+     * @param \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     public function boot(Router $router)
@@ -42,7 +45,8 @@ abstract class RoutingServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router $router
+     * @param \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     public function map(Router $router)
@@ -51,7 +55,7 @@ abstract class RoutingServiceProvider extends ServiceProvider
             $this->loadApiRoutes($router);
         });
 
-        $router->group(['namespace' => $this->namespace, 'prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localizationRedirect'] ], function (Router $router) {
+        $router->group(['namespace' => $this->namespace, 'prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localizationRedirect']], function (Router $router) {
             $this->loadBackendRoutes($router);
             $this->loadFrontendRoutes($router);
         });

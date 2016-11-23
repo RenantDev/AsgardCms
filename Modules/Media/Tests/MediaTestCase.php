@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Tests;
+<?php
+
+namespace Modules\Media\Tests;
 
 use Collective\Html\FormFacade;
 use Collective\Html\HtmlFacade;
@@ -36,9 +38,9 @@ abstract class MediaTestCase extends TestCase
     {
         return [
             'LaravelLocalization' => LaravelLocalization::class,
-            'Validator' => Validator::class,
-            'Form' => FormFacade::class,
-            'Html' => HtmlFacade::class,
+            'Validator'           => Validator::class,
+            'Form'                => FormFacade::class,
+            'Html'                => HtmlFacade::class,
         ];
     }
 
@@ -47,20 +49,20 @@ abstract class MediaTestCase extends TestCase
         $conf = [
             'smallThumb' => [
                 'fit' => [
-                    'width' => 50,
-                    'height' => 50,
+                    'width'    => 50,
+                    'height'   => 50,
                     'callback' => function ($constraint) {
                         $constraint->upsize();
                     },
                 ],
             ],
         ];
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('asgard.media.config', ['filesystem' => 'local']);
         $app['config']->set('asgard.media.thumbnails', $conf);
         $app['config']->set('modules', [
             'namespace' => 'Modules',
         ]);
-        $app['config']->set('modules.paths.modules', realpath(__DIR__ . '/../Modules'));
+        $app['config']->set('modules.paths.modules', realpath(__DIR__.'/../Modules'));
     }
 }

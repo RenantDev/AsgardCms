@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Helpers;
+<?php
+
+namespace Modules\Media\Helpers;
 
 use Illuminate\Support\Str;
 
@@ -11,12 +13,14 @@ class FileHelper
 
         $name = Str::slug($name);
 
-        return $name . $extension;
+        return $name.$extension;
     }
 
     /**
-     * Get the extension from the given name
+     * Get the extension from the given name.
+     *
      * @param $name
+     *
      * @return string
      */
     private static function getExtension($name)

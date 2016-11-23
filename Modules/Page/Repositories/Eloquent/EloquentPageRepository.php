@@ -1,4 +1,6 @@
-<?php namespace Modules\Page\Repositories\Eloquent;
+<?php
+
+namespace Modules\Page\Repositories\Eloquent;
 
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 use Modules\Page\Events\PageWasCreated;
@@ -8,7 +10,8 @@ use Modules\Page\Repositories\PageRepository;
 class EloquentPageRepository extends EloquentBaseRepository implements PageRepository
 {
     /**
-     * Find the page set as homepage
+     * Find the page set as homepage.
+     *
      * @return object
      */
     public function findHomepage()
@@ -17,7 +20,8 @@ class EloquentPageRepository extends EloquentBaseRepository implements PageRepos
     }
 
     /**
-     * Count all records
+     * Count all records.
+     *
      * @return int
      */
     public function countAll()
@@ -26,7 +30,8 @@ class EloquentPageRepository extends EloquentBaseRepository implements PageRepos
     }
 
     /**
-     * @param  mixed  $data
+     * @param mixed $data
+     *
      * @return object
      */
     public function create($data)
@@ -40,7 +45,8 @@ class EloquentPageRepository extends EloquentBaseRepository implements PageRepos
 
     /**
      * @param $model
-     * @param  array  $data
+     * @param array $data
+     *
      * @return object
      */
     public function update($model, $data)

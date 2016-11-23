@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Image;
+<?php
+
+namespace Modules\Media\Image;
 
 use Illuminate\Contracts\Config\Repository;
 
@@ -23,14 +25,15 @@ class ThumbnailsManager
     }
 
     /**
-     * Return all thumbnails for all modules
+     * Return all thumbnails for all modules.
+     *
      * @return array
      */
     public function all()
     {
         $thumbnails = [];
         foreach ($this->module->enabled() as $enabledModule) {
-            $configuration = $this->config->get(strtolower('asgard.' . $enabledModule->getName()) . '.thumbnails');
+            $configuration = $this->config->get(strtolower('asgard.'.$enabledModule->getName()).'.thumbnails');
             if (!is_null($configuration)) {
                 $thumbnails = array_merge($thumbnails, Thumbnail::makeMultiple($configuration));
             }
@@ -40,8 +43,10 @@ class ThumbnailsManager
     }
 
     /**
-     * Find the filters for the given thumbnail
+     * Find the filters for the given thumbnail.
+     *
      * @param $thumbnail
+     *
      * @return array
      */
     public function find($thumbnail)

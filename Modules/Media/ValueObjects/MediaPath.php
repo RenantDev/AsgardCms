@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\ValueObjects;
+<?php
+
+namespace Modules\Media\ValueObjects;
 
 use Modules\Media\UrlResolvers\BaseUrlResolver;
 
@@ -11,14 +13,15 @@ class MediaPath
 
     public function __construct($path)
     {
-        if (! is_string($path)) {
+        if (!is_string($path)) {
             throw new \InvalidArgumentException('The path must be a string');
         }
         $this->path = $path;
     }
 
     /**
-     * Get the URL depending on configured disk
+     * Get the URL depending on configured disk.
+     *
      * @return string
      */
     public function getUrl()

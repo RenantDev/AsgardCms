@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Repositories\Eloquent;
+<?php
+
+namespace Modules\Menu\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\App;
@@ -25,7 +27,8 @@ class EloquentMenuRepository extends EloquentBaseRepository implements MenuRepos
     }
 
     /**
-     * Get all online menus
+     * Get all online menus.
+     *
      * @return object
      */
     public function allOnline()

@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Validators;
+<?php
+
+namespace Modules\Media\Validators;
 
 use Illuminate\Validation\Validator;
 use RecursiveDirectoryIterator;
@@ -18,10 +20,12 @@ class MaxFolderSizeValidator extends Validator
     }
 
     /**
-    * Get the directory size
-    * @param string $directory
-    * @return int
-    */
+     * Get the directory size.
+     *
+     * @param string $directory
+     *
+     * @return int
+     */
     public function getDirSize($directory)
     {
         $size = 0;

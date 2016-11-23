@@ -21,7 +21,7 @@ $router->group(['prefix' => '/workshop'],
         $router->get('themes', ['as' => 'admin.workshop.themes.index', 'uses' => 'ThemesController@index']);
         $router->get('themes/{theme}', ['as' => 'admin.workshop.themes.show', 'uses' => 'ThemesController@show']);
 
-        # Workbench
+        // Workbench
         $router->get('workbench', ['as' => 'admin.workshop.workbench.index', 'uses' => 'WorkbenchController@index']);
         $router->post('generate', ['as' => 'admin.workshop.workbench.generate.index', 'uses' => 'WorkbenchController@generate']);
         $router->post('migrate', ['as' => 'admin.workshop.workbench.migrate.index', 'uses' => 'WorkbenchController@migrate']);

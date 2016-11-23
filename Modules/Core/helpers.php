@@ -1,13 +1,13 @@
 <?php
 
-if (! function_exists('on_route')) {
+if (!function_exists('on_route')) {
     function on_route($route)
     {
         return Route::current() ? Route::is($route) : false;
     }
 }
 
-if (! function_exists('locale')) {
+if (!function_exists('locale')) {
     function locale($locale = null)
     {
         if (is_null($locale)) {
@@ -20,7 +20,7 @@ if (! function_exists('locale')) {
     }
 }
 
-if (! function_exists('is_module_enabled')) {
+if (!function_exists('is_module_enabled')) {
     function is_module_enabled($module)
     {
         return array_key_exists($module, app('modules')->enabled());

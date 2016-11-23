@@ -1,5 +1,8 @@
-<?php namespace Modules\Translation\Http\Controllers\Admin;
+<?php
 
+namespace Modules\Translation\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Translation\Entities\TranslationTranslation;
@@ -9,7 +12,6 @@ use Modules\Translation\Importers\TranslationsImporter;
 use Modules\Translation\Repositories\TranslationRepository;
 use Modules\Translation\Services\TranslationsService;
 use Pingpong\Modules\Facades\Module;
-use Breadcrumbs;
 
 class TranslationController extends AdminBaseController
 {

@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Navigation;
+<?php
+
+namespace Modules\Core\Navigation;
 
 use Illuminate\Support\Collection;
 
@@ -25,6 +27,7 @@ class NavigationOrdener
 
     /**
      * @param $item
+     *
      * @return mixed
      */
     public static function getItem($item)

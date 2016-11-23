@@ -1,4 +1,6 @@
-<?php namespace Modules\Page\Composers;
+<?php
+
+namespace Modules\Page\Composers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Filesystem\Filesystem;
@@ -32,7 +34,7 @@ class TemplateViewComposer
 
         $templates = [];
 
-        foreach ($this->finder->allFiles($path . '/views') as $template) {
+        foreach ($this->finder->allFiles($path.'/views') as $template) {
             $relativePath = $template->getRelativePath();
 
             if ($this->isLayoutOrPartial($relativePath)) {
@@ -43,7 +45,7 @@ class TemplateViewComposer
             $file = $this->removeExtensionsFromFilename($template);
 
             if ($this->hasSubdirectory($relativePath)) {
-                $templates[str_replace('/', '.', $relativePath) . '.' . $file] = $templateName;
+                $templates[str_replace('/', '.', $relativePath).'.'.$file] = $templateName;
             } else {
                 $templates[$file] = $templateName;
             }
@@ -71,7 +73,7 @@ class TemplateViewComposer
      */
     private function getTemplateName($template)
     {
-        preg_match("/{{-- Template: (.*) --}}/", $template->getContents(), $templateName);
+        preg_match('/{{-- Template: (.*) --}}/', $template->getContents(), $templateName);
 
         if (count($templateName) > 1) {
             return $templateName[1];
@@ -92,7 +94,7 @@ class TemplateViewComposer
         $relativePath = $template->getRelativePath();
         $fileName = $this->removeExtensionsFromFilename($template);
 
-        return $this->hasSubdirectory($relativePath) ? $relativePath . '/' . $fileName : $fileName;
+        return $this->hasSubdirectory($relativePath) ? $relativePath.'/'.$fileName : $fileName;
     }
 
     /**
@@ -104,7 +106,7 @@ class TemplateViewComposer
      */
     private function isLayoutOrPartial($relativePath)
     {
-        return preg_match("#(layouts|partials)#i", $relativePath) === 1;
+        return preg_match('#(layouts|partials)#i', $relativePath) === 1;
     }
 
     /**
@@ -128,6 +130,6 @@ class TemplateViewComposer
      */
     private function hasSubdirectory($relativePath)
     {
-        return ! empty($relativePath);
+        return !empty($relativePath);
     }
 }

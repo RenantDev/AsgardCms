@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Composers;
+<?php
+
+namespace Modules\Dashboard\Composers;
 
 use Illuminate\Contracts\View\View;
 
@@ -18,9 +20,11 @@ class WidgetViewComposer
     }
 
     /**
-     * Add the html of the widget view to the given widget name
+     * Add the html of the widget view to the given widget name.
+     *
      * @param string $name
      * @param string $view
+     *
      * @return $this
      */
     public function addSubview($name, $view)
@@ -31,9 +35,11 @@ class WidgetViewComposer
     }
 
     /**
-     * Add widget options to the given widget name
+     * Add widget options to the given widget name.
+     *
      * @param $name
      * @param array $options
+     *
      * @return $this
      */
     public function addWidgetOptions($name, array $options)
@@ -44,8 +50,10 @@ class WidgetViewComposer
     }
 
     /**
-     * Set the widget name
+     * Set the widget name.
+     *
      * @param string $name
+     *
      * @return $this
      */
     public function setWidgetName($name)

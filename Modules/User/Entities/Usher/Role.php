@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Entities\Usher;
+<?php
+
+namespace Modules\User\Entities\Usher;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,6 +16,7 @@ class Role extends UsherRole implements RoleInterface
 {
     /**
      * @ORM\ManyToMany(targetEntity="User", mappedBy="roles")
+     *
      * @var ArrayCollection|\Maatwebsite\Usher\Contracts\Users\User[]
      **/
     protected $users;
@@ -41,26 +44,26 @@ class Role extends UsherRole implements RoleInterface
 
     /**
      * @param $attribute
+     *
      * @return null|string
      */
     public function __get($attribute)
     {
-        $method = 'get' . studly_case($attribute);
+        $method = 'get'.studly_case($attribute);
 
         if (method_exists($this, $method)) {
             return $this->{$method}();
         }
-
-        return null;
     }
 
     /**
      * @param $attribute
+     *
      * @return bool
      */
     public function __isset($attribute)
     {
-        $method = 'get' . studly_case($attribute);
+        $method = 'get'.studly_case($attribute);
 
         if (method_exists($this, $method)) {
             return true;

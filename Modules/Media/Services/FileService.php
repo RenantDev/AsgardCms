@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Services;
+<?php
+
+namespace Modules\Media\Services;
 
 use Illuminate\Contracts\Filesystem\Factory;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -27,7 +29,8 @@ class FileService
     }
 
     /**
-     * @param  UploadedFile $file
+     * @param UploadedFile $file
+     *
      * @return mixed
      */
     public function store(UploadedFile $file)
@@ -38,7 +41,7 @@ class FileService
         $stream = fopen($file->getRealPath(), 'r+');
         $this->filesystem->disk($this->getConfiguredFilesystem())->writeStream($path, $stream, [
             'visibility' => 'public',
-            'mimetype' => $savedFile->mimetype,
+            'mimetype'   => $savedFile->mimetype,
         ]);
 
         $this->createThumbnails($savedFile);
@@ -47,7 +50,8 @@ class FileService
     }
 
     /**
-     * Create the necessary thumbnails for the given file
+     * Create the necessary thumbnails for the given file.
+     *
      * @param $savedFile
      */
     private function createThumbnails(File $savedFile)
@@ -57,12 +61,13 @@ class FileService
 
     /**
      * @param string $path
+     *
      * @return string
      */
     private function getDestinationPath($path)
     {
         if ($this->getConfiguredFilesystem() === 'local') {
-            return basename(public_path()) . $path;
+            return basename(public_path()).$path;
         }
 
         return $path;

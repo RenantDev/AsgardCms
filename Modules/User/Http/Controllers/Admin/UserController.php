@@ -1,12 +1,14 @@
-<?php namespace Modules\User\Http\Controllers\Admin;
+<?php
 
+namespace Modules\User\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use Modules\Core\Contracts\Authentication;
 use Modules\User\Http\Requests\CreateUserRequest;
 use Modules\User\Http\Requests\UpdateUserRequest;
 use Modules\User\Permissions\PermissionManager;
 use Modules\User\Repositories\RoleRepository;
 use Modules\User\Repositories\UserRepository;
-use Breadcrumbs;
 use URL;
 
 class UserController extends BaseUserModuleController
@@ -43,7 +45,7 @@ class UserController extends BaseUserModuleController
         $this->role = $role;
         $this->auth = $auth;
 
-        Breadcrumbs::addCrumb(trans("user::users.breadcrumb.users"),URL::route('admin.user.user.index'));
+        Breadcrumbs::addCrumb(trans('user::users.breadcrumb.users'), URL::route('admin.user.user.index'));
     }
 
     /**
@@ -53,7 +55,6 @@ class UserController extends BaseUserModuleController
      */
     public function index()
     {
-
         $users = $this->user->all();
 
         $currentUser = $this->auth->check();
@@ -68,7 +69,7 @@ class UserController extends BaseUserModuleController
      */
     public function create()
     {
-        Breadcrumbs::addCrumb(trans("user::users.breadcrumb.new"));
+        Breadcrumbs::addCrumb(trans('user::users.breadcrumb.new'));
 
         $roles = $this->role->all();
 
@@ -78,7 +79,8 @@ class UserController extends BaseUserModuleController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CreateUserRequest $request
+     * @param CreateUserRequest $request
+     *
      * @return Response
      */
     public function store(CreateUserRequest $request)
@@ -95,13 +97,14 @@ class UserController extends BaseUserModuleController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int      $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
     {
-        Breadcrumbs::addCrumb(trans("user::users.breadcrumb.edit-user"));
-        
+        Breadcrumbs::addCrumb(trans('user::users.breadcrumb.edit-user'));
+
         if (!$user = $this->user->find($id)) {
             flash()->error(trans('user::messages.user not found'));
 
@@ -117,8 +120,9 @@ class UserController extends BaseUserModuleController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int               $id
-     * @param  UpdateUserRequest $request
+     * @param int               $id
+     * @param UpdateUserRequest $request
+     *
      * @return Response
      */
     public function update($id, UpdateUserRequest $request)
@@ -135,7 +139,8 @@ class UserController extends BaseUserModuleController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int      $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

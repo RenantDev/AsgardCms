@@ -1,5 +1,8 @@
-<?php namespace Modules\Menu\Http\Controllers\Admin;
+<?php
 
+namespace Modules\Menu\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Menu\Entities\Menu;
 use Modules\Menu\Http\Requests\CreateMenuRequest;
@@ -7,7 +10,6 @@ use Modules\Menu\Http\Requests\UpdateMenuRequest;
 use Modules\Menu\Repositories\MenuItemRepository;
 use Modules\Menu\Repositories\MenuRepository;
 use Modules\Menu\Services\MenuRenderer;
-use Breadcrumbs;
 use URL;
 
 class MenuController extends AdminBaseController
@@ -35,7 +37,7 @@ class MenuController extends AdminBaseController
         $this->menuItem = $menuItem;
         $this->menuRenderer = $menuRenderer;
 
-        Breadcrumbs::addCrumb(trans('menu::menu.breadcrumb.menu'),URL::route('admin.menu.menu.index'));
+        Breadcrumbs::addCrumb(trans('menu::menu.breadcrumb.menu'), URL::route('admin.menu.menu.index'));
     }
 
     public function index()
@@ -64,7 +66,7 @@ class MenuController extends AdminBaseController
     public function edit(Menu $menu)
     {
         Breadcrumbs::addCrumb(trans('menu::menu.breadcrumb.edit menu'));
-        
+
         $menuItems = $this->menuItem->allRootsForMenu($menu->id);
 
         $menuStructure = $this->menuRenderer->renderForMenu($menu->id, $menuItems->nest());
