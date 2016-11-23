@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Providers;
+<?php
+
+namespace Modules\Translation\Providers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -47,6 +49,7 @@ class TranslationServiceProvider extends ServiceProvider
 
     /**
      * Should we register the Custom Translator?
+     *
      * @return bool
      */
     protected function shouldRegisterCustomTranslator()
@@ -59,7 +62,7 @@ class TranslationServiceProvider extends ServiceProvider
             return false;
         }
 
-        if (false === Schema::hasTable((new Translation)->getTable())) {
+        if (false === Schema::hasTable((new Translation())->getTable())) {
             return false;
         }
 
@@ -73,7 +76,7 @@ class TranslationServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     private function registerBindings()
@@ -81,7 +84,7 @@ class TranslationServiceProvider extends ServiceProvider
         $this->app->bind(TranslationRepository::class, function () {
             $repository = new EloquentTranslationRepository(new Translation());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 

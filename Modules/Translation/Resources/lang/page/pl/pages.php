@@ -2,9 +2,9 @@
 
 return [
     'title' => [
-        'pages' => 'Strony',
+        'pages'       => 'Strony',
         'create page' => 'Utwórz stronę',
-        'edit page' => 'Edytuj stronę',
+        'edit page'   => 'Edytuj stronę',
     ],
     'button' => [
         'create page' => 'Utwórz stronę',
@@ -14,21 +14,21 @@ return [
         'slug' => 'Slug',
     ],
     'form' => [
-        'title' => 'Tytuł',
-        'slug' => 'Slug',
-        'meta_title' => 'Meta tytuł',
+        'title'            => 'Tytuł',
+        'slug'             => 'Slug',
+        'meta_title'       => 'Meta tytuł',
         'meta_description' => 'Meta opis',
-        'og_title' => 'Facebook tytuł',
-        'og_description' => 'Facebook opis',
-        'og_type' => 'Facebook typ',
-        'template' => 'Szablon strony',
-        'is homepage' => 'Strona domowa ?',
-        'body' => 'Treść',
+        'og_title'         => 'Facebook tytuł',
+        'og_description'   => 'Facebook opis',
+        'og_type'          => 'Facebook typ',
+        'template'         => 'Szablon strony',
+        'is homepage'      => 'Strona domowa ?',
+        'body'             => 'Treść',
     ],
     'validation' => [
         'attributes' => [
             'title' => 'title',
-            'body' => 'body',
+            'body'  => 'body',
         ],
     ],
     'facebook-types' => [
@@ -37,6 +37,6 @@ return [
         'article' => 'Artykuł',
     ],
     'navigation' => [
-        'back to index' => 'Wróć do indeksu stron'
-    ]
+        'back to index' => 'Wróć do indeksu stron',
+    ],
 ];

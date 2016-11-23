@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Sentry;
+<?php
+
+namespace Modules\User\Repositories\Sentry;
 
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Cartalyst\Sentry\Throttling\UserBannedException;
@@ -14,9 +16,11 @@ use Modules\User\Events\UserHasActivatedAccount;
 class SentryAuthentication implements Authentication
 {
     /**
-     * Authenticate a user
-     * @param  array $credentials
-     * @param  bool  $remember    Remember the user
+     * Authenticate a user.
+     *
+     * @param array $credentials
+     * @param bool  $remember    Remember the user
+     *
      * @return mixed
      */
     public function login(array $credentials, $remember = false)
@@ -44,7 +48,9 @@ class SentryAuthentication implements Authentication
 
     /**
      * Register a new user.
-     * @param  array $user
+     *
+     * @param array $user
+     *
      * @return bool
      */
     public function register(array $user)
@@ -53,9 +59,11 @@ class SentryAuthentication implements Authentication
     }
 
     /**
-     * Activate the given used id
-     * @param  int    $userId
-     * @param  string $code
+     * Activate the given used id.
+     *
+     * @param int    $userId
+     * @param string $code
+     *
      * @return bool
      */
     public function activate($userId, $code)
@@ -76,8 +84,10 @@ class SentryAuthentication implements Authentication
 
     /**
      * Assign a role to the given user.
-     * @param  \Modules\User\Repositories\UserRepository $user
-     * @param  \Modules\User\Repositories\RoleRepository $role
+     *
+     * @param \Modules\User\Repositories\UserRepository $user
+     * @param \Modules\User\Repositories\RoleRepository $role
+     *
      * @return mixed
      */
     public function assignRole($user, $role)
@@ -87,6 +97,7 @@ class SentryAuthentication implements Authentication
 
     /**
      * Log the user out of the application.
+     *
      * @return mixed
      */
     public function logout()
@@ -95,8 +106,10 @@ class SentryAuthentication implements Authentication
     }
 
     /**
-     * Create an activation code for the given user
+     * Create an activation code for the given user.
+     *
      * @param $user
+     *
      * @return mixed
      */
     public function createActivation($user)
@@ -105,8 +118,10 @@ class SentryAuthentication implements Authentication
     }
 
     /**
-     * Create a reminders code for the given user
+     * Create a reminders code for the given user.
+     *
      * @param $user
+     *
      * @return mixed
      */
     public function createReminderCode($user)
@@ -115,10 +130,12 @@ class SentryAuthentication implements Authentication
     }
 
     /**
-     * Completes the reset password process
+     * Completes the reset password process.
+     *
      * @param $user
-     * @param  string $code
-     * @param  string $password
+     * @param string $code
+     * @param string $password
+     *
      * @return bool
      */
     public function completeResetPassword($user, $code, $password)
@@ -127,8 +144,10 @@ class SentryAuthentication implements Authentication
     }
 
     /**
-     * Determines if the current user has access to given permission
+     * Determines if the current user has access to given permission.
+     *
      * @param $permission
+     *
      * @return bool
      */
     public function hasAccess($permission)
@@ -143,7 +162,8 @@ class SentryAuthentication implements Authentication
     }
 
     /**
-     * Check if the user is logged in
+     * Check if the user is logged in.
+     *
      * @return mixed
      */
     public function check()
@@ -156,12 +176,13 @@ class SentryAuthentication implements Authentication
     }
 
     /**
-     * Get the ID for the currently authenticated user
+     * Get the ID for the currently authenticated user.
+     *
      * @return int
      */
     public function id()
     {
-        if (! $user = $this->check()) {
+        if (!$user = $this->check()) {
             return;
         }
 

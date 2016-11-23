@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Doctrine;
+<?php
+
+namespace Modules\Core\Doctrine;
 
 use Illuminate\Support\Facades\App;
 use Mitch\LaravelDoctrine\EntityManagerFacade;
@@ -19,7 +21,8 @@ trait Translatable
     }
 
     /**
-     * Create or update the given field name
+     * Create or update the given field name.
+     *
      * @param string $fieldName
      * @param string $locale
      * @param string $value
@@ -35,7 +38,7 @@ trait Translatable
             }
         }
 
-        if (! $found) {
+        if (!$found) {
             $foreignKey = $this->getForeignKey();
 
             $translationObjectClass = $this->getTranslationClass();
@@ -48,9 +51,11 @@ trait Translatable
     }
 
     /**
-     * Get the translation of the given field name
-     * @param  string      $fieldName
-     * @param  string|null $locale
+     * Get the translation of the given field name.
+     *
+     * @param string      $fieldName
+     * @param string|null $locale
+     *
      * @return string
      */
     public function translation($fieldName, $locale = null)
@@ -65,7 +70,8 @@ trait Translatable
     }
 
     /**
-     * @param  string $fieldName
+     * @param string $fieldName
+     *
      * @return mixed
      */
     public function translatableGetter($fieldName)
@@ -81,6 +87,7 @@ trait Translatable
 
     /**
      * @param $name
+     *
      * @return mixed
      */
     public function getRawField($name)
@@ -95,7 +102,7 @@ trait Translatable
     {
         $cacheArray = [];
         $translatedEntityName = $this->getTranslationClass();
-        if (! isset($cacheArray[$translatedEntityName])) {
+        if (!isset($cacheArray[$translatedEntityName])) {
             $cacheArray[$translatedEntityName] = array_values(array_diff(EntityManagerFacade::getClassMetadata($translatedEntityName)->getColumnNames(),
                 ['id', 'locale']));
         }
@@ -104,7 +111,8 @@ trait Translatable
     }
 
     /**
-     * Get the foreign key for the current class
+     * Get the foreign key for the current class.
+     *
      * @return string
      */
     private function getForeignKey()
@@ -116,11 +124,12 @@ trait Translatable
     }
 
     /**
-     * Get the Translations class name
+     * Get the Translations class name.
+     *
      * @return string
      */
     private function getTranslationClass()
     {
-        return get_class($this) . 'Translation';
+        return get_class($this).'Translation';
     }
 }

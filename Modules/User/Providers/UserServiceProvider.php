@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Providers;
+<?php
+
+namespace Modules\User\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -17,7 +19,7 @@ class UserServiceProvider extends ServiceProvider
     protected $providers = [
         'Sentinel' => 'Cartalyst\\Sentinel\\Laravel\\SentinelServiceProvider',
         'Sentry'   => 'Cartalyst\\Sentry\\SentryServiceProvider',
-        'Usher'    => 'Maatwebsite\\Usher\\UsherServiceProvider'
+        'Usher'    => 'Maatwebsite\\Usher\\UsherServiceProvider',
     ];
 
     /**
@@ -26,7 +28,7 @@ class UserServiceProvider extends ServiceProvider
     protected $middleware = [
         'User' => [
             'auth.guest' => 'GuestMiddleware',
-            'logged.in' => 'LoggedInMiddleware'
+            'logged.in'  => 'LoggedInMiddleware',
         ],
     ];
 
@@ -44,17 +46,16 @@ class UserServiceProvider extends ServiceProvider
         $this->registerBindings();
     }
 
-    /**
-     */
+
     public function boot()
     {
         $this->registerMiddleware($this->app['router']);
 
         $this->publishes([
-            __DIR__ . '/../Resources/views' => base_path('resources/views/asgard/user'),
+            __DIR__.'/../Resources/views' => base_path('resources/views/asgard/user'),
         ]);
         $this->loadViewsFrom(base_path('resources/views/asgard/user'), 'user');
-        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'user');
+        $this->loadViewsFrom(__DIR__.'/../Resources/views', 'user');
     }
 
     /**
@@ -64,7 +65,7 @@ class UserServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     private function registerBindings()

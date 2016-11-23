@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Http\Controllers\Admin;
+<?php
+
+namespace Modules\Core\Http\Controllers\Admin;
 
 use FloatingPoint\Stylist\Facades\ThemeFacade as Theme;
 use Illuminate\Routing\Controller;
@@ -27,7 +29,7 @@ class AdminBaseController extends Controller
     }
 
     /**
-     * Add the assets from the config file on the asset manager
+     * Add the assets from the config file on the asset manager.
      */
     private function addAssets()
     {
@@ -41,7 +43,7 @@ class AdminBaseController extends Controller
     }
 
     /**
-     * Require the default assets from config file on the asset pipeline
+     * Require the default assets from config file on the asset pipeline.
      */
     private function requireDefaultAssets()
     {

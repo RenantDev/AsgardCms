@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Sentry;
+<?php
+
+namespace Modules\User\Repositories\Sentry;
 
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Cartalyst\Sentry\Users\UserNotFoundException;
@@ -8,7 +10,8 @@ use Modules\User\Repositories\UserRepository;
 class SentryUserRepository implements UserRepository
 {
     /**
-     * Returns all the users
+     * Returns all the users.
+     *
      * @return object
      */
     public function all()
@@ -17,8 +20,10 @@ class SentryUserRepository implements UserRepository
     }
 
     /**
-     * Create a user resource
-     * @param  array $data
+     * Create a user resource.
+     *
+     * @param array $data
+     *
      * @return mixed
      */
     public function create(array $data)
@@ -27,7 +32,8 @@ class SentryUserRepository implements UserRepository
     }
 
     /**
-     * Create a user and assign roles to it
+     * Create a user and assign roles to it.
+     *
      * @param array $data
      * @param array $roles
      * @param bool  $activated
@@ -46,8 +52,10 @@ class SentryUserRepository implements UserRepository
     }
 
     /**
-     * Find a user by its ID
+     * Find a user by its ID.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function find($id)
@@ -56,9 +64,11 @@ class SentryUserRepository implements UserRepository
     }
 
     /**
-     * Update a user
+     * Update a user.
+     *
      * @param $user
      * @param $data
+     *
      * @return mixed
      */
     public function update($user, $data)
@@ -67,10 +77,12 @@ class SentryUserRepository implements UserRepository
     }
 
     /**
-     * Update a user and sync its roles
-     * @param  int   $userId
+     * Update a user and sync its roles.
+     *
+     * @param int $userId
      * @param $data
      * @param $roles
+     *
      * @return mixed
      */
     public function updateAndSyncRoles($userId, $data, $roles)
@@ -105,24 +117,30 @@ class SentryUserRepository implements UserRepository
     }
 
     /**
-     * Deletes a user
+     * Deletes a user.
+     *
      * @param $id
-     * @return mixed
+     *
      * @throws UserNotFoundException
+     *
+     * @return mixed
      */
     public function delete($id)
     {
         if ($user = Sentry::findUserById($id)) {
             return $user->delete();
-        };
+        }
         throw new UserNotFoundException();
     }
 
     /**
-     * Find a user by its credentials
-     * @param  array $credentials
-     * @return mixed
+     * Find a user by its credentials.
+     *
+     * @param array $credentials
+     *
      * @throws BaseUserNotFoundException
+     *
+     * @return mixed
      */
     public function findByCredentials(array $credentials)
     {
@@ -137,12 +155,13 @@ class SentryUserRepository implements UserRepository
 
     /**
      * Check if there is a new password given
-     * If not, unset the password field
+     * If not, unset the password field.
+     *
      * @param array $data
      */
     private function checkForNewPassword(array &$data)
     {
-        if (! $data['password']) {
+        if (!$data['password']) {
             unset($data['password']);
         }
     }

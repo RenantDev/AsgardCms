@@ -1,4 +1,6 @@
-<?php namespace Modules\Page\Http\Requests;
+<?php
+
+namespace Modules\Page\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
@@ -12,7 +14,7 @@ class UpdatePageRequest extends BaseFormRequest
 
         return [
             'template' => 'required',
-            'is_home' => "unique:page__pages,is_home,{$page->id}",
+            'is_home'  => "unique:page__pages,is_home,{$page->id}",
         ];
     }
 
@@ -20,7 +22,7 @@ class UpdatePageRequest extends BaseFormRequest
     {
         return [
             'title' => 'required',
-            'body' => 'required',
+            'body'  => 'required',
         ];
     }
 
@@ -33,7 +35,7 @@ class UpdatePageRequest extends BaseFormRequest
     {
         return [
             'template.required' => trans('page::messages.template is required'),
-            'is_home.unique' => trans('page::messages.only one homepage allowed'),
+            'is_home.unique'    => trans('page::messages.only one homepage allowed'),
         ];
     }
 
@@ -41,7 +43,7 @@ class UpdatePageRequest extends BaseFormRequest
     {
         return [
             'title.required' => trans('page::messages.title is required'),
-            'body.required' => trans('page::messages.body is required'),
+            'body.required'  => trans('page::messages.body is required'),
         ];
     }
 }

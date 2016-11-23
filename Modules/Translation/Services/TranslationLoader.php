@@ -1,9 +1,12 @@
-<?php namespace Modules\Translation\Services;
+<?php
+
+namespace Modules\Translation\Services;
 
 class TranslationLoader extends \Illuminate\Translation\FileLoader
 {
     /**
      * Get all Paths where Translations could be found.
+     *
      * @return array
      */
     public function paths()

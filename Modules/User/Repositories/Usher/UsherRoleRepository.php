@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Usher;
+<?php
+
+namespace Modules\User\Repositories\Usher;
 
 use Maatwebsite\Usher\Contracts\Roles\RoleRepository as UsherRoleRepo;
 use Modules\User\Repositories\RoleRepository;
@@ -19,7 +21,8 @@ class UsherRoleRepository implements RoleRepository
     }
 
     /**
-     * Return all the roles
+     * Return all the roles.
+     *
      * @return mixed
      */
     public function all()
@@ -28,13 +31,14 @@ class UsherRoleRepository implements RoleRepository
     }
 
     /**
-     * Create a role resource
+     * Create a role resource.
+     *
      * @return mixed
      */
     public function create($data)
     {
         $entity = $this->role->getClassName();
-        $role = new $entity;
+        $role = new $entity();
 
         $role->create(
             $data['name'],
@@ -48,8 +52,10 @@ class UsherRoleRepository implements RoleRepository
     }
 
     /**
-     * Find a role by its id
+     * Find a role by its id.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function find($id)
@@ -58,9 +64,11 @@ class UsherRoleRepository implements RoleRepository
     }
 
     /**
-     * Update a role
+     * Update a role.
+     *
      * @param $id
      * @param $data
+     *
      * @return mixed
      */
     public function update($id, $data)
@@ -79,8 +87,10 @@ class UsherRoleRepository implements RoleRepository
     }
 
     /**
-     * Delete a role
+     * Delete a role.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function delete($id)
@@ -91,8 +101,10 @@ class UsherRoleRepository implements RoleRepository
     }
 
     /**
-     * Find a role by its name
-     * @param  string $name
+     * Find a role by its name.
+     *
+     * @param string $name
+     *
      * @return mixed
      */
     public function findByName($name)

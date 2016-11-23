@@ -1,13 +1,16 @@
-<?php namespace Modules\Workshop\Scaffold\Module\Generators;
+<?php
+
+namespace Modules\Workshop\Scaffold\Module\Generators;
 
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 class FilesGenerator extends Generator
 {
     /**
-     * Generate the given files
+     * Generate the given files.
      *
-     * @param  array $files
+     * @param array $files
+     *
      * @return void
      */
     public function generate(array $files)
@@ -21,7 +24,8 @@ class FilesGenerator extends Generator
     }
 
     /**
-     * Generate the base module service provider
+     * Generate the base module service provider.
+     *
      * @return $this
      */
     public function generateModuleProvider()
@@ -35,11 +39,13 @@ class FilesGenerator extends Generator
     }
 
     /**
-     * Get the content for the given file
+     * Get the content for the given file.
      *
      * @param $stub
-     * @return string
+     *
      * @throws FileNotFoundException
+     *
+     * @return string
      */
     private function getContentFor($stub)
     {

@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Sidebar;
+<?php
+
+namespace Modules\Core\Sidebar;
 
 use Illuminate\Contracts\Container\Container;
 use Maatwebsite\Sidebar\Menu;
@@ -38,13 +40,13 @@ class AdminSidebar implements Sidebar, ShouldCache
     }
 
     /**
-     * Build your sidebar implementation here
+     * Build your sidebar implementation here.
      */
     public function build()
     {
         foreach ($this->modules->enabled() as $module) {
             $name = studly_case($module->getName());
-            $class = 'Modules\\' . $name . '\\Sidebar\\SidebarExtender';
+            $class = 'Modules\\'.$name.'\\Sidebar\\SidebarExtender';
 
             if (class_exists($class)) {
                 $extender = $this->container->make($class);

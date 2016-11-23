@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Foundation\Theme;
+<?php
+
+namespace Modules\Core\Foundation\Theme;
 
 class AssetPublisher
 {
@@ -26,6 +28,7 @@ class AssetPublisher
 
     /**
      * @param $finder
+     *
      * @return $this
      */
     public function setFinder($finder)
@@ -37,6 +40,7 @@ class AssetPublisher
 
     /**
      * @param $repository
+     *
      * @return $this
      */
     public function setRepository($repository)
@@ -47,7 +51,7 @@ class AssetPublisher
     }
 
     /**
-     * Publish the assets
+     * Publish the assets.
      */
     public function publish()
     {
@@ -64,16 +68,18 @@ class AssetPublisher
     }
 
     /**
-     * Get the original source path
+     * Get the original source path.
+     *
      * @return string
      */
     public function getSourcePath()
     {
-        return $this->theme->getPath() . '/assets';
+        return $this->theme->getPath().'/assets';
     }
 
     /**
-     * Get the destination path
+     * Get the destination path.
+     *
      * @return string
      */
     public function getDestinationPath()

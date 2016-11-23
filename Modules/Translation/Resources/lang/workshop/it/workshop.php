@@ -3,5 +3,5 @@
 return [
     'title'   => 'Workshop',
     'modules' => 'Moduli',
-    'themes' => 'Themes',
+    'themes'  => 'Themes',
 ];

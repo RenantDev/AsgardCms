@@ -1,19 +1,22 @@
-<?php namespace Modules\Media\Entities;
+<?php
+
+namespace Modules\Media\Entities;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Media\ValueObjects\MediaPath;
 
 /**
- * Class File
- * @package Modules\Media\Entities
+ * Class File.
+ *
  * @property \Modules\Media\ValueObjects\MediaPath path
  */
 class File extends Model
 {
     use Translatable;
     /**
-     * All the different images types where thumbnails should be created
+     * All the different images types where thumbnails should be created.
+     *
      * @var array
      */
     private $imageExtensions = ['jpg', 'png', 'jpeg', 'gif'];

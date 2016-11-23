@@ -1,13 +1,15 @@
-<?php namespace Modules\Core\Internationalisation;
+<?php
+
+namespace Modules\Core\Internationalisation;
 
 /**
- * Class Helper
- * @package Modules\Core\Internationalisation
+ * Class Helper.
  */
 class Helper
 {
     /**
-     * Save the given model properties in all given languages
+     * Save the given model properties in all given languages.
+     *
      * @param $model
      * @param $data
      */
@@ -17,7 +19,8 @@ class Helper
     }
 
     /**
-     * Create the given model and save its translated attributes
+     * Create the given model and save its translated attributes.
+     *
      * @param $model
      * @param $data
      */
@@ -29,8 +32,10 @@ class Helper
     }
 
     /**
-     * Separate the input fields into their own language key
+     * Separate the input fields into their own language key.
+     *
      * @param $data
+     *
      * @return array
      */
     public static function separateLanguages($data)
@@ -50,7 +55,8 @@ class Helper
     }
 
     /**
-     * Save the given properties for the model
+     * Save the given properties for the model.
+     *
      * @param $model
      * @param $data
      */

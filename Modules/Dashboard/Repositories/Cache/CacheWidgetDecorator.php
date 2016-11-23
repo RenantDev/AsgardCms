@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Repositories\Cache;
+<?php
+
+namespace Modules\Dashboard\Repositories\Cache;
 
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 use Modules\Dashboard\Repositories\WidgetRepository;
@@ -13,8 +15,10 @@ class CacheWidgetDecorator extends BaseCacheDecorator implements WidgetRepositor
     }
 
     /**
-     * Find the saved state of widgets for the given user id
+     * Find the saved state of widgets for the given user id.
+     *
      * @param int $userId
+     *
      * @return string
      */
     public function findForUser($userId)
@@ -29,8 +33,10 @@ class CacheWidgetDecorator extends BaseCacheDecorator implements WidgetRepositor
     }
 
     /**
-     * Update or create the given widgets for given user
+     * Update or create the given widgets for given user.
+     *
      * @param array $widgets
+     *
      * @return void
      */
     public function updateOrCreateForUser($widgets, $userId)

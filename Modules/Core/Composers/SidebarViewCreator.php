@@ -1,7 +1,9 @@
-<?php namespace Modules\Core\Composers;
+<?php
 
-use Modules\Core\Sidebar\IlluminateSidebarRenderer;
+namespace Modules\Core\Composers;
+
 use Modules\Core\Sidebar\AdminSidebar;
+use Modules\Core\Sidebar\IlluminateSidebarRenderer;
 
 class SidebarViewCreator
 {

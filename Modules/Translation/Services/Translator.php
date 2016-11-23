@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Services;
+<?php
+
+namespace Modules\Translation\Services;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Modules\Translation\Repositories\TranslationRepository;
@@ -6,13 +8,15 @@ use Modules\Translation\Repositories\TranslationRepository;
 class Translator extends \Illuminate\Translation\Translator
 {
     use DispatchesJobs;
+
     /**
      * Get the translation for the given key.
      *
-     * @param  string  $key
-     * @param  array   $replace
-     * @param  string  $locale
-     * @param  bool  $fallback
+     * @param string $key
+     * @param array  $replace
+     * @param string $locale
+     * @param bool   $fallback
+     *
      * @return string
      */
     public function get($key, array $replace = [], $locale = null, $fallback = true)

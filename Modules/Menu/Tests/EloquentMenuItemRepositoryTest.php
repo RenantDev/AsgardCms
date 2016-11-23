@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Tests;
+<?php
+
+namespace Modules\Menu\Tests;
 
 class EloquentMenuItemRepositoryTest extends BaseMenuTest
 {
@@ -8,7 +10,8 @@ class EloquentMenuItemRepositoryTest extends BaseMenuTest
     }
 
     /**
-     * New menu item should be created
+     * New menu item should be created.
+     *
      * @test
      */
     public function it_should_create_menu_item_as_root()
@@ -16,19 +19,19 @@ class EloquentMenuItemRepositoryTest extends BaseMenuTest
         $menu = $this->createMenu('second', 'Second Menu');
 
         $data = [
-            'menu_id' => $menu->id,
-            'position' => 0,
-            'target' => '_self',
+            'menu_id'     => $menu->id,
+            'position'    => 0,
+            'target'      => '_self',
             'module_name' => 'blog',
-            'en' => [
+            'en'          => [
                 'status' => 1,
-                'title' => 'First Menu Item',
-                'uri' => 'item1',
+                'title'  => 'First Menu Item',
+                'uri'    => 'item1',
             ],
             'fr' => [
                 'status' => 1,
-                'title' => 'Premier item de menu',
-                'uri' => 'item1',
+                'title'  => 'Premier item de menu',
+                'uri'    => 'item1',
             ],
         ];
 

@@ -2,23 +2,23 @@
 
 return [
     'title' => [
-        'category' => 'Categories',
+        'category'        => 'Categories',
         'create category' => 'Create category',
-        'edit category' => 'Edit category',
+        'edit category'   => 'Edit category',
     ],
     'button' => [
         'create category' => 'Create category',
     ],
     'table' => [
         'created at' => 'Create at',
-        'name' => 'Name',
-        'slug' => 'Slug',
+        'name'       => 'Name',
+        'slug'       => 'Slug',
     ],
     'form' => [
         'name' => 'Name',
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => 'Back to category index'
+        'back to index' => 'Back to category index',
     ],
 ];

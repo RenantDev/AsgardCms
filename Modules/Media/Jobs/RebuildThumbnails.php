@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Jobs;
+<?php
+
+namespace Modules\Media\Jobs;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -26,7 +28,7 @@ class RebuildThumbnails extends Job implements SelfHandling, ShouldQueue
         $imagy = app('imagy');
 
         foreach ($this->paths as $path) {
-            app('log')->info('Generating thumbnails for path: ' . $path);
+            app('log')->info('Generating thumbnails for path: '.$path);
             $imagy->createAll($path);
         }
     }

@@ -3,8 +3,8 @@
 return [
     'smallThumb' => [
         'resize' => [
-            'width' => 50,
-            'height' => null,
+            'width'    => 50,
+            'height'   => null,
             'callback' => function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
@@ -13,8 +13,8 @@ return [
     ],
     'mediumThumb' => [
         'resize' => [
-            'width' => 180,
-            'height' => null,
+            'width'    => 180,
+            'height'   => null,
             'callback' => function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();

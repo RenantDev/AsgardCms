@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Jobs;
+<?php
+
+namespace Modules\Media\Jobs;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -25,7 +27,7 @@ class CreateThumbnails extends Job implements SelfHandling, ShouldQueue
     {
         $imagy = app('imagy');
 
-        app('log')->info('Generating thumbnails for path: ' . $this->path);
+        app('log')->info('Generating thumbnails for path: '.$this->path);
 
         $imagy->createAll($this->path);
     }

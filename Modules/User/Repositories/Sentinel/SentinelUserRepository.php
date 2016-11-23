@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Sentinel;
+<?php
+
+namespace Modules\User\Repositories\Sentinel;
 
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
@@ -25,7 +27,8 @@ class SentinelUserRepository implements UserRepository
     }
 
     /**
-     * Returns all the users
+     * Returns all the users.
+     *
      * @return object
      */
     public function all()
@@ -34,8 +37,10 @@ class SentinelUserRepository implements UserRepository
     }
 
     /**
-     * Create a user resource
+     * Create a user resource.
+     *
      * @param $data
+     *
      * @return mixed
      */
     public function create(array $data)
@@ -44,10 +49,11 @@ class SentinelUserRepository implements UserRepository
     }
 
     /**
-     * Create a user and assign roles to it
-     * @param  array $data
-     * @param  array $roles
-     * @param bool $activated
+     * Create a user and assign roles to it.
+     *
+     * @param array $data
+     * @param array $roles
+     * @param bool  $activated
      */
     public function createWithRoles($data, $roles, $activated = false)
     {
@@ -65,8 +71,10 @@ class SentinelUserRepository implements UserRepository
     }
 
     /**
-     * Find a user by its ID
+     * Find a user by its ID.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function find($id)
@@ -75,9 +83,11 @@ class SentinelUserRepository implements UserRepository
     }
 
     /**
-     * Update a user
+     * Update a user.
+     *
      * @param $user
      * @param $data
+     *
      * @return mixed
      */
     public function update($user, $data)
@@ -93,7 +103,9 @@ class SentinelUserRepository implements UserRepository
      * @param $userId
      * @param $data
      * @param $roles
+     *
      * @internal param $user
+     *
      * @return mixed
      */
     public function updateAndSyncRoles($userId, $data, $roles)
@@ -115,23 +127,28 @@ class SentinelUserRepository implements UserRepository
     }
 
     /**
-     * Deletes a user
+     * Deletes a user.
+     *
      * @param $id
+     *
      * @throws UserNotFoundException
+     *
      * @return mixed
      */
     public function delete($id)
     {
         if ($user = $this->user->find($id)) {
             return $user->delete();
-        };
+        }
 
         throw new UserNotFoundException();
     }
 
     /**
-     * Find a user by its credentials
-     * @param  array $credentials
+     * Find a user by its credentials.
+     *
+     * @param array $credentials
+     *
      * @return mixed
      */
     public function findByCredentials(array $credentials)
@@ -140,7 +157,8 @@ class SentinelUserRepository implements UserRepository
     }
 
     /**
-     * Hash the password key
+     * Hash the password key.
+     *
      * @param array $data
      */
     private function hashPassword(array &$data)
@@ -150,12 +168,13 @@ class SentinelUserRepository implements UserRepository
 
     /**
      * Check if there is a new password given
-     * If not, unset the password field
+     * If not, unset the password field.
+     *
      * @param array $data
      */
     private function checkForNewPassword(array &$data)
     {
-        if (! $data['password']) {
+        if (!$data['password']) {
             unset($data['password']);
 
             return;
@@ -165,7 +184,8 @@ class SentinelUserRepository implements UserRepository
     }
 
     /**
-     * Check and manually activate or remove activation for the user
+     * Check and manually activate or remove activation for the user.
+     *
      * @param $user
      * @param array $data
      */

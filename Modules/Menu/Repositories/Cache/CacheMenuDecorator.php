@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Repositories\Cache;
+<?php
+
+namespace Modules\Menu\Repositories\Cache;
 
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 use Modules\Menu\Repositories\MenuRepository;
@@ -18,7 +20,8 @@ class CacheMenuDecorator extends BaseCacheDecorator implements MenuRepository
     }
 
     /**
-     * Get all online menus
+     * Get all online menus.
+     *
      * @return object
      */
     public function allOnline()

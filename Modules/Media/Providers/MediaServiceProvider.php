@@ -1,4 +1,6 @@
-<?php namespace Modules\Media\Providers;
+<?php
+
+namespace Modules\Media\Providers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -34,8 +36,8 @@ class MediaServiceProvider extends ServiceProvider
     {
         $this->registerMaxFolderSizeValidator();
 
-        $this->mergeConfigFrom(__DIR__ . '/../Config/config.php', 'asgard.media.config');
-        $this->publishes([__DIR__ . '/../Config/config.php' => config_path('asgard.media.config' . '.php'), ], 'config');
+        $this->mergeConfigFrom(__DIR__.'/../Config/config.php', 'asgard.media.config');
+        $this->publishes([__DIR__.'/../Config/config.php' => config_path('asgard.media.config'.'.php')], 'config');
     }
 
     /**
@@ -45,7 +47,7 @@ class MediaServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     private function registerBindings()
@@ -56,7 +58,7 @@ class MediaServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register all commands for this module
+     * Register all commands for this module.
      */
     private function registerCommands()
     {
@@ -64,7 +66,7 @@ class MediaServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the refresh thumbnails command
+     * Register the refresh thumbnails command.
      */
     private function registerRefreshCommand()
     {

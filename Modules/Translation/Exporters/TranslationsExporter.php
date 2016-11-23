@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Exporters;
+<?php
+
+namespace Modules\Translation\Exporters;
 
 use League\Csv\Writer;
 use Modules\Translation\Services\TranslationsService;
@@ -33,7 +35,7 @@ class TranslationsExporter
      */
     private function getFileName()
     {
-        return $this->filename . time() . '.csv';
+        return $this->filename.time().'.csv';
     }
 
     /**

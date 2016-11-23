@@ -1,20 +1,24 @@
-<?php namespace Modules\Media\Image\Intervention\Manipulations;
+<?php
+
+namespace Modules\Media\Image\Intervention\Manipulations;
 
 use Modules\Media\Image\ImageHandlerInterface;
 
 class Trim implements ImageHandlerInterface
 {
     private $defaults = [
-        'base' => 'top-left',
-        'away' => ['top', 'bottom', 'left', 'right'],
+        'base'      => 'top-left',
+        'away'      => ['top', 'bottom', 'left', 'right'],
         'tolerance' => 0,
-        'feather' => 0,
+        'feather'   => 0,
     ];
 
     /**
-     * Handle the image manipulation request
-     * @param  \Intervention\Image\Image $image
-     * @param  array                     $options
+     * Handle the image manipulation request.
+     *
+     * @param \Intervention\Image\Image $image
+     * @param array                     $options
+     *
      * @return \Intervention\Image\Image
      */
     public function handle($image, $options)

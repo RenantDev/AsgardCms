@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Http\Middleware;
+<?php
+
+namespace Modules\Core\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
@@ -30,12 +32,13 @@ class PermissionMiddleware
     /**
      * @param Request  $request
      * @param callable $next
+     *
      * @return mixed
      */
     public function handle(Request $request, \Closure $next)
     {
         $action = $this->route->getActionName();
-        $actionMethod = substr($action, strpos($action, "@") + 1);
+        $actionMethod = substr($action, strpos($action, '@') + 1);
 
         $segmentPosition = $this->getSegmentPosition($request);
         $moduleName = $this->getModuleName($request, $segmentPosition);
@@ -52,9 +55,10 @@ class PermissionMiddleware
     }
 
     /**
-     * Get the correct segment position based on the locale or not
+     * Get the correct segment position based on the locale or not.
      *
      * @param $request
+     *
      * @return mixed
      */
     private function getSegmentPosition(Request $request)
@@ -62,7 +66,7 @@ class PermissionMiddleware
         $segmentPosition = config('laravellocalization.hideDefaultLocaleInURL', false) ? 3 : 4;
 
         if ($request->segment($segmentPosition) == config('asgard.core.core.admin-prefix')) {
-            return ++ $segmentPosition;
+            return ++$segmentPosition;
         }
 
         return $segmentPosition;
@@ -72,16 +76,18 @@ class PermissionMiddleware
      * @param $moduleName
      * @param $entityName
      * @param $actionMethod
+     *
      * @return string
      */
     private function getPermission($moduleName, $entityName, $actionMethod)
     {
-        return ltrim($moduleName . '.' . $entityName . '.' . $actionMethod, '.');
+        return ltrim($moduleName.'.'.$entityName.'.'.$actionMethod, '.');
     }
 
     /**
      * @param Request $request
      * @param         $segmentPosition
+     *
      * @return string
      */
     protected function getModuleName(Request $request, $segmentPosition)
@@ -92,6 +98,7 @@ class PermissionMiddleware
     /**
      * @param Request $request
      * @param         $segmentPosition
+     *
      * @return string
      */
     protected function getEntityName(Request $request, $segmentPosition)

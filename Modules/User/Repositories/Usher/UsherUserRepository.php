@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Usher;
+<?php
+
+namespace Modules\User\Repositories\Usher;
 
 use Maatwebsite\Usher\Contracts\Roles\RoleRepository;
 use Maatwebsite\Usher\Contracts\Users\UserRepository as UsherUserRepo;
@@ -31,7 +33,8 @@ class UsherUserRepository implements UserRepository
     }
 
     /**
-     * Returns all the users
+     * Returns all the users.
+     *
      * @return object
      */
     public function all()
@@ -40,14 +43,16 @@ class UsherUserRepository implements UserRepository
     }
 
     /**
-     * Create a user resource
+     * Create a user resource.
+     *
      * @param $data
+     *
      * @return mixed
      */
     public function create(array $data)
     {
         $entity = $this->user->getClassName();
-        $user = new $entity;
+        $user = new $entity();
 
         $name = new Name(
             $data['first_name'],
@@ -75,10 +80,12 @@ class UsherUserRepository implements UserRepository
     }
 
     /**
-     * Create a user and assign roles to it
-     * @param  array $data
-     * @param  array $roles
-     * @param bool $activated
+     * Create a user and assign roles to it.
+     *
+     * @param array $data
+     * @param array $roles
+     * @param bool  $activated
+     *
      * @return mixed
      */
     public function createWithRoles($data, $roles, $activated = false)
@@ -99,8 +106,10 @@ class UsherUserRepository implements UserRepository
     }
 
     /**
-     * Find a user by its ID
+     * Find a user by its ID.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function find($id)
@@ -109,9 +118,11 @@ class UsherUserRepository implements UserRepository
     }
 
     /**
-     * Update a user
+     * Update a user.
+     *
      * @param $user
      * @param $data
+     *
      * @return mixed
      */
     public function update($user, $data)
@@ -152,7 +163,9 @@ class UsherUserRepository implements UserRepository
      * @param $userId
      * @param $data
      * @param $roles
+     *
      * @internal param $user
+     *
      * @return mixed
      */
     public function updateAndSyncRoles($userId, $data, $roles)
@@ -174,9 +187,12 @@ class UsherUserRepository implements UserRepository
     }
 
     /**
-     * Deletes a user
+     * Deletes a user.
+     *
      * @param $id
+     *
      * @throws UserNotFoundException
+     *
      * @return mixed
      */
     public function delete($id)
@@ -187,8 +203,10 @@ class UsherUserRepository implements UserRepository
     }
 
     /**
-     * Find a user by its credentials
-     * @param  array $credentials
+     * Find a user by its credentials.
+     *
+     * @param array $credentials
+     *
      * @return mixed
      */
     public function findByCredentials(array $credentials)

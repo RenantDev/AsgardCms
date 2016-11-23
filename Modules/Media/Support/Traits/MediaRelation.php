@@ -1,9 +1,12 @@
-<?php namespace Modules\Media\Support\Traits;
+<?php
+
+namespace Modules\Media\Support\Traits;
 
 trait MediaRelation
 {
     /**
-     * Make the Many To Many Morph To Relation
+     * Make the Many To Many Morph To Relation.
+     *
      * @return object
      */
     public function files()

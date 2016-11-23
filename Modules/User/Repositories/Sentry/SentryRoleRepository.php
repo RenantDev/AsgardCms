@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Repositories\Sentry;
+<?php
+
+namespace Modules\User\Repositories\Sentry;
 
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Modules\User\Repositories\RoleRepository;
@@ -6,7 +8,8 @@ use Modules\User\Repositories\RoleRepository;
 class SentryRoleRepository implements RoleRepository
 {
     /**
-     * Return all the roles
+     * Return all the roles.
+     *
      * @return mixed
      */
     public function all()
@@ -15,7 +18,8 @@ class SentryRoleRepository implements RoleRepository
     }
 
     /**
-     * Create a role resource
+     * Create a role resource.
+     *
      * @return mixed
      */
     public function create($data)
@@ -25,8 +29,10 @@ class SentryRoleRepository implements RoleRepository
     }
 
     /**
-     * Find a role by its id
+     * Find a role by its id.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function find($id)
@@ -35,9 +41,11 @@ class SentryRoleRepository implements RoleRepository
     }
 
     /**
-     * Update a role
+     * Update a role.
+     *
      * @param $id
      * @param $data
+     *
      * @return mixed
      */
     public function update($id, $data)
@@ -49,8 +57,10 @@ class SentryRoleRepository implements RoleRepository
     }
 
     /**
-     * Delete a role
+     * Delete a role.
+     *
      * @param $id
+     *
      * @return mixed
      */
     public function delete($id)
@@ -61,8 +71,10 @@ class SentryRoleRepository implements RoleRepository
     }
 
     /**
-     * Find a role by its name
-     * @param  string $name
+     * Find a role by its name.
+     *
+     * @param string $name
+     *
      * @return mixed
      */
     public function findByName($name)

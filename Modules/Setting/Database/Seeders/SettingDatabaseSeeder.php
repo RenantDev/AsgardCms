@@ -1,4 +1,6 @@
-<?php namespace Modules\Setting\Database\Seeders;
+<?php
+
+namespace Modules\Setting\Database\Seeders;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
@@ -27,7 +29,7 @@ class SettingDatabaseSeeder extends Seeder
 
         $data = [
             'core::template' => 'Flatly',
-            'core::locales' => ['en','th'],
+            'core::locales'  => ['en', 'th'],
         ];
 
         $this->setting->createOrUpdate($data);

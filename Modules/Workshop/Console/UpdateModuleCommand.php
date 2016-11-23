@@ -1,4 +1,6 @@
-<?php namespace Modules\Workshop\Console;
+<?php
+
+namespace Modules\Workshop\Console;
 
 use Illuminate\Console\Command;
 use Modules\Core\Services\Composer;
@@ -29,8 +31,10 @@ class UpdateModuleCommand extends Command
     }
 
     /**
-     * Make the full package name for the given module name
+     * Make the full package name for the given module name.
+     *
      * @param string $module
+     *
      * @return string
      */
     private function getModulePackageName($module)

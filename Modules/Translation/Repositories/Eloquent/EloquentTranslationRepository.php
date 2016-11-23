@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Repositories\Eloquent;
+<?php
+
+namespace Modules\Translation\Repositories\Eloquent;
 
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 use Modules\Translation\Entities\TranslationTranslation;
@@ -9,6 +11,7 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Tr
     /**
      * @param string $key
      * @param string $locale
+     *
      * @return string
      */
     public function findByKeyAndLocale($key, $locale = null)
@@ -51,9 +54,11 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Tr
     }
 
     /**
-     * Update the given translation key with the given data
+     * Update the given translation key with the given data.
+     *
      * @param string $key
-     * @param array $data
+     * @param array  $data
+     *
      * @return mixed
      */
     public function updateFromImport($key, array $data)
@@ -63,9 +68,11 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Tr
     }
 
     /**
-     * Set the given value on the given TranslationTranslation
+     * Set the given value on the given TranslationTranslation.
+     *
      * @param TranslationTranslation $translationTranslation
-     * @param string $value
+     * @param string                 $value
+     *
      * @return void
      */
     public function updateTranslationToValue(TranslationTranslation $translationTranslation, $value)

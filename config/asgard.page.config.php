@@ -11,11 +11,11 @@ return [
     'partials' => [
         'translatable' => [
             'create' => [],
-            'edit' => [],
+            'edit'   => [],
         ],
         'normal' => [
             'create' => [],
-            'edit' => [],
+            'edit'   => [],
         ],
     ],
     /*

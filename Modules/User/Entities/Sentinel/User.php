@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Entities\Sentinel;
+<?php
+
+namespace Modules\User\Entities\Sentinel;
 
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Users\EloquentUser;
@@ -19,7 +21,7 @@ class User extends EloquentUser implements UserInterface
     ];
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected $loginNames = ['email'];
 
@@ -34,8 +36,10 @@ class User extends EloquentUser implements UserInterface
     }
 
     /**
-     * Checks if a user belongs to the given Role ID
-     * @param  int $roleId
+     * Checks if a user belongs to the given Role ID.
+     *
+     * @param int $roleId
+     *
      * @return bool
      */
     public function hasRoleId($roleId)
@@ -44,8 +48,10 @@ class User extends EloquentUser implements UserInterface
     }
 
     /**
-     * Checks if a user belongs to the given Role Name
-     * @param  string $name
+     * Checks if a user belongs to the given Role Name.
+     *
+     * @param string $name
+     *
      * @return bool
      */
     public function hasRoleName($name)
@@ -54,7 +60,8 @@ class User extends EloquentUser implements UserInterface
     }
 
     /**
-     * Check if the current user is activated
+     * Check if the current user is activated.
+     *
      * @return bool
      */
     public function isActivated()
@@ -70,17 +77,17 @@ class User extends EloquentUser implements UserInterface
     {
         $class_name = class_basename($this);
 
-        #i: Convert array to dot notation
+        //i: Convert array to dot notation
         $config = implode('.', ['relations', $class_name, $method]);
 
-        #i: Relation method resolver
+        //i: Relation method resolver
         if (Config::has($config)) {
             $function = Config::get($config);
 
             return $function($this);
         }
 
-        #i: No relation found, return the call to parent (Eloquent) to handle it.
+        //i: No relation found, return the call to parent (Eloquent) to handle it.
         return parent::__call($method, $parameters);
     }
 }

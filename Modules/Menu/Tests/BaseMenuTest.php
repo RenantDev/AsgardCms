@@ -1,4 +1,6 @@
-<?php namespace Modules\Menu\Tests;
+<?php
+
+namespace Modules\Menu\Tests;
 
 use Faker\Factory;
 use Illuminate\Contracts\Console\Kernel;
@@ -25,9 +27,7 @@ abstract class BaseMenuTest extends TestCase
      */
     protected $menuItem;
 
-    /**
-     *
-     */
+
     public function setUp()
     {
         parent::setUp();
@@ -52,20 +52,20 @@ abstract class BaseMenuTest extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Eloquent' => Model::class,
+            'Eloquent'            => Model::class,
             'LaravelLocalization' => LaravelLocalization::class,
         ];
     }
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', array(
-            'driver' => 'sqlite',
+        $app['config']->set('database.connections.sqlite', [
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
-        ));
+            'prefix'   => '',
+        ]);
         $app['config']->set('translatable.locales', ['en', 'fr']);
     }
 
@@ -93,10 +93,10 @@ abstract class BaseMenuTest extends TestCase
     public function createMenu($name, $title)
     {
         $data = [
-            'name' => $name,
+            'name'    => $name,
             'primary' => true,
-            'en' => [
-                'title' => $title,
+            'en'      => [
+                'title'  => $title,
                 'status' => 1,
             ],
         ];
@@ -105,11 +105,12 @@ abstract class BaseMenuTest extends TestCase
     }
 
     /**
-     * Create a menu item for the given menu and position
+     * Create a menu item for the given menu and position.
      *
-     * @param  int    $menuId
-     * @param  int    $position
-     * @param  null   $parentId
+     * @param int  $menuId
+     * @param int  $position
+     * @param null $parentId
+     *
      * @return object
      */
     protected function createMenuItemForMenu($menuId, $position, $parentId = null)
@@ -120,20 +121,20 @@ abstract class BaseMenuTest extends TestCase
         $slug = Str::slug($title);
 
         $data = [
-            'menu_id' => $menuId,
-            'position' => $position,
-            'parent_id' => $parentId,
-            'target' => '_self',
+            'menu_id'     => $menuId,
+            'position'    => $position,
+            'parent_id'   => $parentId,
+            'target'      => '_self',
             'module_name' => 'blog',
-            'en' => [
+            'en'          => [
                 'status' => 1,
-                'title' => $title,
-                'uri' => $slug,
+                'title'  => $title,
+                'uri'    => $slug,
             ],
             'fr' => [
                 'status' => 1,
-                'title' => $title,
-                'uri' => $slug,
+                'title'  => $title,
+                'uri'    => $slug,
             ],
         ];
 

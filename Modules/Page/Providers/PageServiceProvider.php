@@ -1,4 +1,6 @@
-<?php namespace Modules\Page\Providers;
+<?php
+
+namespace Modules\Page\Providers;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -27,8 +29,8 @@ class PageServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../Config/config.php', 'asgard.page.config');
-        $this->publishes([__DIR__ . '/../Config/config.php' => config_path('asgard.page.config' . '.php'), ], 'config');
+        $this->mergeConfigFrom(__DIR__.'/../Config/config.php', 'asgard.page.config');
+        $this->publishes([__DIR__.'/../Config/config.php' => config_path('asgard.page.config'.'.php')], 'config');
     }
 
     /**
@@ -38,7 +40,7 @@ class PageServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     private function registerBindings()
@@ -48,7 +50,7 @@ class PageServiceProvider extends ServiceProvider
             function () {
                 $repository = new EloquentPageRepository(new Page());
 
-                if (! Config::get('app.cache')) {
+                if (!Config::get('app.cache')) {
                     return $repository;
                 }
 

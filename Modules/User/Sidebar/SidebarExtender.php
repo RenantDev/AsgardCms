@@ -1,4 +1,6 @@
-<?php namespace Modules\User\Sidebar;
+<?php
+
+namespace Modules\User\Sidebar;
 
 use Maatwebsite\Sidebar\Group;
 use Maatwebsite\Sidebar\Item;
@@ -30,7 +32,6 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
     public function extendWith(Menu $menu)
     {
         $menu->group(trans('workshop::workshop.title'), function (Group $group) {
-
             $group->item(trans('user::users.title.users'), function (Item $item) {
                 $item->weight(0);
                 $item->icon('fa fa-user');
@@ -56,7 +57,6 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                     );
                 });
             });
-
         });
 
         return $menu;

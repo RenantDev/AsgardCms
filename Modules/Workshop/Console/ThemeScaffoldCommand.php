@@ -1,4 +1,6 @@
-<?php namespace Modules\Workshop\Console;
+<?php
+
+namespace Modules\Workshop\Console;
 
 use Illuminate\Console\Command;
 use Modules\Workshop\Scaffold\Theme\ThemeScaffold;
@@ -31,8 +33,10 @@ class ThemeScaffoldCommand extends Command
     }
 
     /**
-     * Extract the vendor and module name as two separate values
-     * @param  string $fullName
+     * Extract the vendor and module name as two separate values.
+     *
+     * @param string $fullName
+     *
      * @return array
      */
     private function separateVendorAndName($fullName)

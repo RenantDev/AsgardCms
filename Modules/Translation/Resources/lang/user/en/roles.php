@@ -5,20 +5,20 @@ return [
         'new-role' => 'New role',
     ],
     'title' => [
-        'roles' => 'Roles',
-        'edit' => 'Edit role',
+        'roles'            => 'Roles',
+        'edit'             => 'Edit role',
         'users-with-roles' => 'Users with this role',
     ],
     'breadcrumb' => [
         'roles' => 'Roles',
-        'new' => 'New',
-        'edit' => 'Edit role',
+        'new'   => 'New',
+        'edit'  => 'Edit role',
     ],
     'table' => [
         'name' => 'Name',
     ],
     'tabs' => [
-        'data' => 'Data',
+        'data'        => 'Data',
         'permissions' => 'Permissions',
     ],
     'form' => [
@@ -26,10 +26,10 @@ return [
         'slug' => 'Role slug',
     ],
     'navigation' => [
-        'back to index' => 'Back to roles index'
+        'back to index' => 'Back to roles index',
     ],
-    'select all' => 'Select all',
+    'select all'   => 'Select all',
     'deselect all' => 'Deselect all',
-    'inherit' => 'Inherit from role',
-    'swap' => 'Swap',
+    'inherit'      => 'Inherit from role',
+    'swap'         => 'Swap',
 ];

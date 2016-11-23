@@ -1,4 +1,6 @@
-<?php namespace Modules\Core\Repositories\Cache;
+<?php
+
+namespace Modules\Core\Repositories\Cache;
 
 use Modules\Core\Repositories\BaseRepository;
 
@@ -34,7 +36,8 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * @param  int   $id
+     * @param int $id
+     *
      * @return mixed
      */
     public function find($id)
@@ -63,9 +66,10 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Return all categories in the given language
+     * Return all categories in the given language.
      *
-     * @param  string $lang
+     * @param string $lang
+     *
      * @return object
      */
     public function allTranslatedIn($lang)
@@ -80,8 +84,10 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Find a resource by the given slug
-     * @param  string $slug
+     * Find a resource by the given slug.
+     *
+     * @param string $slug
+     *
      * @return object
      */
     public function findBySlug($slug)
@@ -96,9 +102,10 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Create a resource
+     * Create a resource.
      *
      * @param $data
+     *
      * @return mixed
      */
     public function create($data)
@@ -109,10 +116,11 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Update a resource
+     * Update a resource.
      *
-     * @param        $model
-     * @param  array $data
+     * @param       $model
+     * @param array $data
+     *
      * @return mixed
      */
     public function update($model, $data)
@@ -123,9 +131,10 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Destroy a resource
+     * Destroy a resource.
      *
      * @param $model
+     *
      * @return mixed
      */
     public function destroy($model)
@@ -136,8 +145,10 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Find a resource by an array of attributes
-     * @param  array  $attributes
+     * Find a resource by an array of attributes.
+     *
+     * @param array $attributes
+     *
      * @return object
      */
     public function findByAttributes(array $attributes)
@@ -154,10 +165,12 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Get resources by an array of attributes
-     * @param array $attributes
+     * Get resources by an array of attributes.
+     *
+     * @param array       $attributes
      * @param null|string $orderBy
-     * @param string $sortOrder
+     * @param string      $sortOrder
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getByAttributes(array $attributes, $orderBy = null, $sortOrder = 'asc')
@@ -174,8 +187,10 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Return a collection of elements who's ids match
+     * Return a collection of elements who's ids match.
+     *
      * @param array $ids
+     *
      * @return mixed
      */
     public function findByMany(array $ids)
@@ -192,7 +207,8 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * Clear the cache for this Repositories' Entity
+     * Clear the cache for this Repositories' Entity.
+     *
      * @return bool
      */
     public function clearCache()

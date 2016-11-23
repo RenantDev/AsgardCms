@@ -2,9 +2,9 @@
 
 return [
     'title' => [
-        'pages' => 'Páginas',
+        'pages'       => 'Páginas',
         'create page' => 'Nova página',
-        'edit page' => 'Editar página',
+        'edit page'   => 'Editar página',
     ],
     'button' => [
         'create page' => 'Nova página',
@@ -14,21 +14,21 @@ return [
         'slug' => 'Slug',
     ],
     'form' => [
-        'title' => 'Título',
-        'slug' => 'Slug',
-        'meta_title' => 'Título SEO',
+        'title'            => 'Título',
+        'slug'             => 'Slug',
+        'meta_title'       => 'Título SEO',
         'meta_description' => 'Descrição SEO',
-        'og_title' => 'Título Facebook',
-        'og_description' => 'Descrição Facebook',
-        'og_type' => 'Tipo Facebook',
-        'template' => 'Layout da página',
-        'is homepage' => 'Página inicial ?',
-        'body' => 'Conteúdo',
+        'og_title'         => 'Título Facebook',
+        'og_description'   => 'Descrição Facebook',
+        'og_type'          => 'Tipo Facebook',
+        'template'         => 'Layout da página',
+        'is homepage'      => 'Página inicial ?',
+        'body'             => 'Conteúdo',
     ],
     'validation' => [
         'attributes' => [
             'title' => 'título',
-            'body' => 'conteúdo',
+            'body'  => 'conteúdo',
         ],
     ],
     'facebook-types' => [

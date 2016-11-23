@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Http\Controllers\Api;
+<?php
+
+namespace Modules\Translation\Http\Controllers\Api;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -37,7 +39,7 @@ class TranslationController extends Controller
         $translation = $translation->translate($request->get('locale'));
 
         if (null === $translation) {
-            return response()->json(['<tr><td>' . trans('translation::translations.No Revisions yet') . '</td></tr>']);
+            return response()->json(['<tr><td>'.trans('translation::translations.No Revisions yet').'</td></tr>']);
         }
 
         return response()->json($this->formatRevisionHistory($translation->revisionHistory));

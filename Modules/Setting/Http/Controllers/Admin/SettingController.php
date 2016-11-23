@@ -1,11 +1,13 @@
-<?php namespace Modules\Setting\Http\Controllers\Admin;
+<?php
 
+namespace Modules\Setting\Http\Controllers\Admin;
+
+use Breadcrumbs;
 use Illuminate\Session\Store;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Setting\Http\Requests\SettingRequest;
 use Modules\Setting\Repositories\SettingRepository;
 use Pingpong\Modules\Module;
-use Breadcrumbs;
 use URL;
 
 class SettingController extends AdminBaseController
@@ -31,7 +33,7 @@ class SettingController extends AdminBaseController
         $this->module = app('modules');
         $this->session = $session;
 
-        Breadcrumbs::addCrumb(trans('setting::settings.breadcrumb.settings'),URL::route('admin.setting.settings.index'));
+        Breadcrumbs::addCrumb(trans('setting::settings.breadcrumb.settings'), URL::route('admin.setting.settings.index'));
     }
 
     public function index()
@@ -51,7 +53,7 @@ class SettingController extends AdminBaseController
     public function getModuleSettings(Module $currentModule)
     {
         Breadcrumbs::addCrumb(trans('setting::settings.breadcrumb.module settings', ['module' => ucfirst($currentModule)]));
-        
+
         $this->assetPipeline->requireJs('selectize.js');
         $this->assetPipeline->requireCss('selectize.css');
         $this->assetPipeline->requireCss('selectize-default.css');

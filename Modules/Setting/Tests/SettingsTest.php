@@ -1,4 +1,6 @@
-<?php namespace Modules\Setting\Tests;
+<?php
+
+namespace Modules\Setting\Tests;
 
 class SettingsTest extends BaseSettingTest
 {
@@ -22,7 +24,7 @@ class SettingsTest extends BaseSettingTest
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
             ],
-            'core::template' => 'asgard',
+            'core::template'       => 'asgard',
             'blog::posts-per-page' => 10,
         ];
 
@@ -43,7 +45,7 @@ class SettingsTest extends BaseSettingTest
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
             ],
-            'core::template' => 'asgard',
+            'core::template'       => 'asgard',
             'blog::posts-per-page' => 10,
         ];
 
